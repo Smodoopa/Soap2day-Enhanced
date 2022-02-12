@@ -99,8 +99,14 @@ body {
     display: none;
 }
 .hidden-xs {
-    display: none;
+    display: none !important;
 }
 .navbar-brand {
     display: none;
+}
+.dropdown-menu {
+    background-color: #090909;
+}
+.dropdown-menu>li>a {
+    color: #fff;
 }
