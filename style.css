@@ -8,8 +8,11 @@
     border-color: #000000;
 }
 .form-control {
-    background-color: #3e3e3e;
-    color: white;
+    color: #fff;
+    border: none;
+    background-color: black !important;
+    border-radius: 10px;
+    border-color: black;
 }
 .panel {
     background-color: #131313;
@@ -27,4 +30,8 @@ body {
 }
 .footer {
     display: none;
+}
+.col-sm-12 {
+    padding-right: 0px;
+    padding-left: 0px; 
 }
