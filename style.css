@@ -14,3 +14,17 @@
 .panel {
     background-color: #131313;
 }
+body {
+    color: white;
+}
+.thumbnail {
+    background-color: #131313;
+}
+.alert-info-ex {
+    background-color: #000000;
+    color: #ffffff;
+    border-color: #232323;
+}
+.footer {
+    display: none;
+}
