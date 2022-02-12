@@ -34,16 +34,23 @@ body {
     display: none;
 }
 .navbar-default {
-    background-color: #2c2c2c;
-    border-color: #4b4b4b;
+    background-color: #191919;
+    border-color: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
     flex-direction: row;
+    border-radius: 7px;
+}
+.navbar-nav>li {
+    float: left;
+    background-color: #7373730a;
+    border-radius: 6px;
+    margin: 10px;
 }
 .navbar-default .navbar-nav>li>a {
-    color: #00abff;
+    color: #ededed;
     font-weight: 600;
 }
 navbar-form navbar-right {
@@ -67,4 +74,20 @@ navbar-form navbar-right {
     border-radius: 0;
     background-color: #000000 !important;
     border-radius: 5px;
+}
+.panel-heading {
+    color: #ffffff;
+    background-color: #181818;
+    border-color: #000000;
+}
+.alert-info {
+    color: #ffffff;
+    background-color: #101010;
+    border-color: #00000000;
+}
+.container {
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: auto;
+    margin-left: auto;
 }
