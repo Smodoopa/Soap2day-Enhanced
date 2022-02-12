@@ -85,3 +85,22 @@ body {
     background-color: #101010;
     border-color: #00000000;
 }
+.text-default {
+    color: #fff;
+}
+.bg-select {
+    color: #000;
+    background-color: #d0ff16;
+}
+.alert-warning {
+    display: none;
+}
+.loginbar {
+    display: none;
+}
+.hidden-xs {
+    display: none;
+}
+.navbar-brand {
+    display: none;
+}
