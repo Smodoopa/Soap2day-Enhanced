@@ -41,7 +41,7 @@ body {
     justify-content: center;
     flex-wrap: wrap;
     flex-direction: row;
-    border-radius: 7px;
+    border-radius: 0px;
 }
 .navbar-nav>li {
     float: left;
@@ -109,4 +109,7 @@ body {
 }
 .dropdown-menu>li>a {
     color: #fff;
+}
+body > div > div:nth-child(1) > h3 {
+    display: none;
 }
