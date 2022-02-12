@@ -75,7 +75,7 @@ body {
     background-color: #000000 !important;
     border-radius: 5px;
 }
-.panel-heading {
+.panel-info > .panel-heading {
     color: #ffffff;
     background-color: #181818;
     border-color: #000000;
