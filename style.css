@@ -1,3 +1,16 @@
-.navbar-header {
-    background-color: red;
+.content {
+    background-color: #313030;
+}
+.col-sm-8 {
+    width: 100%;
+}
+.panel-info {
+    border-color: #000000;
+}
+.form-control {
+    background-color: #3e3e3e;
+    color: white;
+}
+.panel {
+
 }
