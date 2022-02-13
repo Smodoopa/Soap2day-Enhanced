@@ -1,41 +1,48 @@
 // ==UserScript==
 // @name         SOAPTV Autoplay
 // @namespace    https://soap2day.ac/*
-// @version      0.1
+// @version      0.5
 // @description  I just wanna sleep!
 // @author       Justin Slocum
 // @match        https://soap2day.ac/*
 // @icon         https://www.google.com/s2/favicons?domain=google.com
-// @grant        none
+// @require      https://code.jquery.com/jquery-2.1.4.min.js
+// @grant        GM_getResourceText
+// @grant        GM_addStyle
+// @resource     IMPORTED_CSS https://raw.githubusercontent.com/Smodoopa/Soap2day-Enhanced/main/style.css
 // ==/UserScript==
 
 (function() {
     'use strict';
-    const $ = window.jQuery;
+    const my_css = GM_getResourceText("IMPORTED_CSS");
 
-    console.log("SOAP auto-play activated!");
+    GM_addStyle(my_css);
+
+    if (localStorage.getItem('autoplay') == null) localStorage.setItem('autoplay', 'true');
 
     setTimeout(() => {
         // Bypasses Idle check.
         if (window.location.href.includes("enter.html")) {
             document.getElementById('btnhome').click();
         } else {
-            $('.content').css('background', '#313030');
-            $('.col-sm-8').css('width', '100%');
-            $('.panel-info').css('borderColor', '#000000');
-            $('.form-control').css('backgroundColor', '#3e3e3e');
-            $('.form-control').css('color', '#white');
-
-            $('.alert-warning').remove();
-            $('.loginbar').remove();
-            $('.hidden-xs').remove();
-
-            $('.panel').css('background', '#131313');
-            document.getElementById('player').scrollIntoView();
+            $('.navbar-nav').prepend('<li><a href="/"><img src="https://soap2day.ac/pic/title.png" style="width: 89px;height: 20px;"></a></li>');
+            $('#divPlayerSelect').append('<div id="btnAutoPlay" class="btn btn-primary">Toggle AutoPlay</div>');
+            if (!JSON.parse(localStorage.getItem('autoplay'))) $('#btnAutoPlay').addClass("autoPlayActive");
+            $('#btnAutoPlay').click(() => {
+                localStorage.setItem('autoplay', !JSON.parse(localStorage.getItem('autoplay')));
+                $('#btnAutoPlay').toggleClass('autoPlayActive');
+                const audio = new Audio('https://github.com/Smodoopa/Soap2day-Enhanced/blob/main/resources/dexter.wav?raw=true');
+                audio.play();
+            });
+            
+            // This isn't possible (Security concerns). Figured I'd comment it anyway.
             //if (!(window.innerWidth == screen.width && window.innerHeight == screen.height)) $('.jw-video').get(0).requestFullscreen();
-            $('#btnTurnOff').click();
-            $('.jw-video').get(0).play();
-            console.log("Ready... set... GO!");
+            
+            if (JSON.parse(localStorage.getItem('autoplay'))) {
+                document.getElementById('player').scrollIntoView();
+                $('#btnTurnOff').click();
+                $('.jw-video').get(0).play();
+            }
         }
-    }, 1500);
+    }, 2500);
 })();
