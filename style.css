@@ -101,7 +101,7 @@ body {
 .body > div > div:nth-child(1) > div > div > nav > div.collapse.navbar-collapse.navbar-ex1-collapse > div > div > div.hidden-xs > a:nth-child(1) {
     display: none;
 }
-body > div > div:nth-child(1) > div > div > nav > div.collapse.navbar-collapse.navbar-ex1-collapse > div > div > div.hidden-xs > a:nth-child(2) {
+.body > div > div:nth-child(1) > div > div > nav > div.collapse.navbar-collapse.navbar-ex1-collapse > div > div > div.hidden-xs > a:nth-child(2) {
     display: none;
 }
 #t3 {
@@ -138,7 +138,10 @@ body > div > div:nth-child(1) > h3 {
 .btn-primary {
     background-color: #337ab7a8;
 }
-.btnAutoPlay {
+#btnAutoPlay {
     background-color: #ff791a;
     margin-left: 10px;
+}
+.autoPlayActive {
+    background-color: rgb(155, 68, 27) !important;
 }
