@@ -98,10 +98,10 @@ body {
 .loginbar {
     display: none;
 }
-.body > div > div:nth-child(1) > div > div > nav > div.collapse.navbar-collapse.navbar-ex1-collapse > div > div > div.hidden-xs > a:nth-child(1) {
+body > div > div:nth-child(1) > div > div > nav > div.collapse.navbar-collapse.navbar-ex1-collapse > div > div > div.hidden-xs > a:nth-child(1) {
     display: none;
 }
-.body > div > div:nth-child(1) > div > div > nav > div.collapse.navbar-collapse.navbar-ex1-collapse > div > div > div.hidden-xs > a:nth-child(2) {
+body > div > div:nth-child(1) > div > div > nav > div.collapse.navbar-collapse.navbar-ex1-collapse > div > div > div.hidden-xs > a:nth-child(2) {
     display: none;
 }
 #t3 {
