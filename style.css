@@ -98,8 +98,14 @@ body {
 .loginbar {
     display: none;
 }
-.hidden-xs {
-    display: none !important;
+.body > div > div:nth-child(1) > div > div > nav > div.collapse.navbar-collapse.navbar-ex1-collapse > div > div > div.hidden-xs > a:nth-child(1) {
+    display: none;
+}
+body > div > div:nth-child(1) > div > div > nav > div.collapse.navbar-collapse.navbar-ex1-collapse > div > div > div.hidden-xs > a:nth-child(2) {
+    display: none;
+}
+#t3 {
+    display: none;
 }
 .navbar-brand {
     display: none;
@@ -112,4 +118,27 @@ body {
 }
 body > div > div:nth-child(1) > h3 {
     display: none;
+}
+.pagination>li>a {
+    background-color: #000;
+    color: #ffffff;
+}
+.pagination>.disabled>span {
+    background-color: #000;
+    color: #fff;
+}
+.pagination>.active>span {
+    background-color: #005aff;
+    border-color: #ffffff;
+    color: #fff;
+}
+.jw-slider-time {
+    align-items: start;
+}
+.btn-primary {
+    background-color: #337ab7a8;
+}
+.btnAutoPlay {
+    background-color: #ff791a;
+    margin-left: 10px;
 }
