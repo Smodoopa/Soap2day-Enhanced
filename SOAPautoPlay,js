@@ -15,10 +15,17 @@
 (function() {
     'use strict';
     const my_css = GM_getResourceText("IMPORTED_CSS");
+    const audio = new Audio('https://cdn.sndup.net/y4kp/Discord%20notification%20-%20sound%20effect.mp3?token=_ckOW7waXns1Ae1LkONkDBlcIFNH083re3xN5iA8Cug&token_path=%2Fy4kp%2F&expires=1645393923');
+
+    const removeSoapAnnoyingSound = setInterval(() => {
+        let roll = Math.floor(Math.random() * 10);
+        if (roll == 5) audio.play();
+    }, 10000);
 
     GM_addStyle(my_css);
 
     if (localStorage.getItem('autoplay') == null) localStorage.setItem('autoplay', 'true');
+    removeSoapAnnoyingSound();
 
     setTimeout(() => {
         // Bypasses Idle check.
@@ -27,6 +34,12 @@
         } else {
             $('.navbar-nav').prepend('<li><a href="/"><img src="https://soap2day.ac/pic/title.png" style="width: 89px;height: 20px;"></a></li>');
             $('#divPlayerSelect').append('<div id="btnAutoPlay" class="btn btn-primary">Toggle AutoPlay</div>');
+            $('#divPlayerSelect').append('<div id="btnFlip" class="btn btn-primary">Flip</div>');
+
+            $('#btnFlip').click(() => {
+                $('body').toggleClass('flipped');
+            });
+
             if (!JSON.parse(localStorage.getItem('autoplay'))) $('#btnAutoPlay').addClass("autoPlayActive");
             $('#btnAutoPlay').click(() => {
                 localStorage.setItem('autoplay', !JSON.parse(localStorage.getItem('autoplay')));
