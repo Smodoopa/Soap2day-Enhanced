@@ -38,15 +38,13 @@
 
             $('#btnFlip').click(() => {
                 $('.content').toggleClass('flipped');
-                document.getElementById('player').scrollIntoView();
+                setTimeout(() => document.getElementById('player').scrollIntoView(), 600);
             });
 
             if (!JSON.parse(localStorage.getItem('autoplay'))) $('#btnAutoPlay').addClass("autoPlayActive");
             $('#btnAutoPlay').click(() => {
                 localStorage.setItem('autoplay', !JSON.parse(localStorage.getItem('autoplay')));
                 $('#btnAutoPlay').toggleClass('autoPlayActive');
-                const audio = new Audio('https://github.com/Smodoopa/Soap2day-Enhanced/blob/main/resources/dexter.wav?raw=true');
-                audio.play();
             });
             
             // This isn't possible (Security concerns). Figured I'd comment it anyway.

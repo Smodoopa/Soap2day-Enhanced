@@ -146,7 +146,7 @@ body > div > div:nth-child(1) > h3 {
     background-color: #ff791a;
     margin-left: 10px;
 }
-.btnFlip {
+#btnFlip {
     background-color: #5528ab;
 }
 .autoPlayActive {
