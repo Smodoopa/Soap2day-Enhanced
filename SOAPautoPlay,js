@@ -35,10 +35,15 @@
             $('.navbar-nav').prepend('<li><a href="/"><img src="https://soap2day.ac/pic/title.png" style="width: 89px;height: 20px;"></a></li>');
             $('#divPlayerSelect').append('<div id="btnAutoPlay" class="btn btn-primary">Toggle AutoPlay</div>');
             $('#divPlayerSelect').append('<div id="btnFlip" class="btn btn-primary">Flip</div>');
+            $('#divPlayerSelect').append('<div id="btnZachMode" class="btn btn-primary"><img src="https://i.imgur.com/bPmmuES.png">Zach Mode</div>');
 
             $('#btnFlip').click(() => {
                 $('.content').toggleClass('flipped');
                 setTimeout(() => document.getElementById('player').scrollIntoView(), 600);
+            });
+
+            $('#btnZachMode').click(() => {
+                $('.content').toggleClass('zachMode');
             });
 
             if (!JSON.parse(localStorage.getItem('autoplay'))) $('#btnAutoPlay').addClass("autoPlayActive");

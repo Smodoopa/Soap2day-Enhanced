@@ -1,6 +1,6 @@
 .content {
     background-color: #313030;
-    transition: transform 0.5s;
+    transition: transform 0.5s, filter 0.5s;
 }
 .col-sm-8 {
     width: 100%;
@@ -25,6 +25,9 @@ body {
 }
 .flipped {
     transform: rotate(180deg);
+}
+.zachMode {
+    filter: grayscale(1);
 }
 .thumbnail {
     background-color: #131313;
@@ -148,6 +151,17 @@ body > div > div:nth-child(1) > h3 {
 }
 #btnFlip {
     background-color: #5528ab;
+    margin-left: 10px;
+    display: inline;
+}
+#btnFlip img {
+    width: 30px;
+    height: 40px;
+    margin-right: 5px;
+}
+#btnZachMode {
+    background-color: #736f7b;
+    margin-left: 10px;
 }
 .autoPlayActive {
     background-color: rgb(89 40 16) !important;
