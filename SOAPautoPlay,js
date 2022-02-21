@@ -25,7 +25,7 @@
     GM_addStyle(my_css);
 
     if (localStorage.getItem('autoplay') == null) localStorage.setItem('autoplay', 'true');
-    removeSoapAnnoyingSound();
+    removeSoapAnnoyingSound;
 
     setTimeout(() => {
         // Bypasses Idle check.
@@ -37,7 +37,8 @@
             $('#divPlayerSelect').append('<div id="btnFlip" class="btn btn-primary">Flip</div>');
 
             $('#btnFlip').click(() => {
-                $('body').toggleClass('flipped');
+                $('.content').toggleClass('flipped');
+                document.getElementById('player').scrollIntoView();
             });
 
             if (!JSON.parse(localStorage.getItem('autoplay'))) $('#btnAutoPlay').addClass("autoPlayActive");

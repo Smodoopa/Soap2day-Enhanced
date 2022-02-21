@@ -1,6 +1,6 @@
 .content {
     background-color: #313030;
-    transition: transform 0.2s;
+    transition: transform 0.5s;
 }
 .col-sm-8 {
     width: 100%;
@@ -145,6 +145,9 @@ body > div > div:nth-child(1) > h3 {
 #btnAutoPlay {
     background-color: #ff791a;
     margin-left: 10px;
+}
+.btnFlip {
+    background-color: #5528ab;
 }
 .autoPlayActive {
     background-color: rgb(89 40 16) !important;
