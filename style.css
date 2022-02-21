@@ -152,15 +152,15 @@ body > div > div:nth-child(1) > h3 {
 #btnFlip {
     background-color: #5528ab;
     margin-left: 10px;
-    display: inline;
 }
 #btnZachMode {
     background-color: #736f7b;
     margin-left: 10px;
+    display: inline-block;
 }
 #btnZachMode > img {
-    width: 30px;
-    height: 40px;
+    width: 17px;
+    height: 22px;
     margin-right: 5px;
 }
 .autoPlayActive {
