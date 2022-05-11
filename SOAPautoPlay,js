@@ -27,6 +27,16 @@
     if (localStorage.getItem('autoplay') == null) localStorage.setItem('autoplay', 'true');
     removeSoapAnnoyingSound;
 
+    const waitForPlayer = setInterval(() => {
+        if ($('.jw-video').length > 0) {
+            clearInterval(waitForPlayer);
+            document.getElementById('player').scrollIntoView();
+            $('#btnTurnOff').click();
+            $('.jw-video').get(0).play();
+            console.log('[SOAPTV AutoPlay] Autoplay initiated.');
+        }
+    }, 1000);
+
     setTimeout(() => {
         // Bypasses Idle check.
         if (window.location.href.includes("enter.html")) {
@@ -51,15 +61,8 @@
                 localStorage.setItem('autoplay', !JSON.parse(localStorage.getItem('autoplay')));
                 $('#btnAutoPlay').toggleClass('autoPlayActive');
             });
-            
-            // This isn't possible (Security concerns). Figured I'd comment it anyway.
-            //if (!(window.innerWidth == screen.width && window.innerHeight == screen.height)) $('.jw-video').get(0).requestFullscreen();
-            
-            if (JSON.parse(localStorage.getItem('autoplay'))) {
-                document.getElementById('player').scrollIntoView();
-                $('#btnTurnOff').click();
-                $('.jw-video').get(0).play();
-            }
+
+            waitForPlayer;
         }
     }, 2500);
 })();
