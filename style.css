@@ -190,3 +190,25 @@ body > div.content > div > div > div:nth-child(3) > div > div > h6 > span {
 .btn-success {
     background-color: #7a00ff;
 }
+.queue-modal {
+    width: 100%;
+    top: 0px;
+    position: fixed;
+    height: 100%;
+    background-color: #000000cc;
+    z-index: 1;
+    display: none;
+    align-content: center;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.modal-content {
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: nowrap;
+    display: flex;
+    align-content: center;
+    width: 37em;
+    align-items: center;
+}

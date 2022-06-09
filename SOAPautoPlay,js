@@ -45,11 +45,17 @@
         localStorage.setItem("myQueue", JSON.stringify(myQueue));
     }
 
+    const toggleModal = () => {
+        $('.queue-modal').show();
+    }
+
     setTimeout(() => {
         // Bypasses Idle check.
         if (window.location.href.includes("enter.html")) {
             document.getElementById('btnhome').click();
         } else {
+            $('body').prepend('<div class="queue-modal"><div class="modal-content"></div></div>');
+
             $('.navbar-nav').prepend('<li><a href="/"><img src="https://soap2day.ac/pic/title.png" style="width: 89px;height: 20px;"></a></li>');
             $('#divPlayerSelect').append('<div id="btnAutoPlay" class="btn btn-primary">Toggle AutoPlay</div>');
             $('#divPlayerSelect').append('<div id="btnFlip" class="btn btn-primary">Flip</div>');
