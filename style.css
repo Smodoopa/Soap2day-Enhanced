@@ -164,6 +164,14 @@ body > div > div:nth-child(1) > h3 {
     height: 22px;
     margin-right: 5px;
 }
+#btnQueueAdd {
+    margin-left: 10px;
+    background-color: #ffac00a8;
+    border-radius: 23px;
+}
+#btnSwitch {
+    display: None;
+}
 .autoPlayActive {
     background-color: rgb(89 40 16) !important;
 }
@@ -176,9 +184,4 @@ body > div.content > div > div > div:nth-child(3) > div > div > h6 > span {
 }
 .btn-success {
     background-color: #7a00ff;
-}
-.btn-queueAdd {
-    margin-left: 10px;
-    background-color: #ffac00a8;
-    border-radius: 23px;
 }
