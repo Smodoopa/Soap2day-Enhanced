@@ -165,12 +165,12 @@ body > div > div:nth-child(1) > h3 {
     margin-right: 5px;
 }
 #btnQueueAdd {
-    margin-left: 10px;
+    margin-left: 20px;
     background-color: #ffac00a8;
     border-radius: 23px;
 }
 #btnQueue {
-    margin-left: 10px;
+    margin-left: 20px;
     background-color: red;
     border-radius: 23px;
 }
