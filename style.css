@@ -212,3 +212,25 @@ body > div.content > div > div > div:nth-child(3) > div > div > h6 > span {
     width: 37em;
     align-items: center;
 }
+.server-header {
+    text-align: center;
+    font-weight: 600;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+    justify-content: flex-start;
+}
+.header-text {
+    flex: 1 1 auto;
+    margin-left: 40px;
+}
+.close-btn {
+    width: 20px;
+    height: 20px;
+    padding: 20px;
+    flex: 0 1 auto;
+    margin-left: auto;
+    cursor: pointer;
+}
