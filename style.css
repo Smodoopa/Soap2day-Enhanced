@@ -144,6 +144,7 @@ body > div > div:nth-child(1) > h3 {
 }
 .btn-primary {
     background-color: #337ab7a8;
+    border-radius: 23px;
 }
 #btnAutoPlay {
     background-color: #ff791a;
@@ -175,4 +176,9 @@ body > div.content > div > div > div:nth-child(3) > div > div > h6 > span {
 }
 .btn-success {
     background-color: #7a00ff;
+}
+.btn-queueAdd {
+    margin-left: 10px;
+    background-color: #ffac00a8;
+    border-radius: 23px;
 }

@@ -37,6 +37,14 @@
         }
     }, 1000);
 
+    const addToQueue = url => {
+        var myQueue = JSON.parse(localStorage.getItem('myQueue'));
+
+        myQueue.push(url);
+
+        localStorage.setItem("myQueue", JSON.stringify(myQueue));
+    }
+
     setTimeout(() => {
         // Bypasses Idle check.
         if (window.location.href.includes("enter.html")) {
@@ -46,6 +54,7 @@
             $('#divPlayerSelect').append('<div id="btnAutoPlay" class="btn btn-primary">Toggle AutoPlay</div>');
             $('#divPlayerSelect').append('<div id="btnFlip" class="btn btn-primary">Flip</div>');
             $('#divPlayerSelect').append('<div id="btnZachMode" class="btn btn-primary"><img src="https://i.imgur.com/bPmmuES.png">Zach Mode</div>');
+            $('#divPlayerSelect').append('<div id="btnQueueAdd" class="btn btn-primary">Add To Queue</div>');
 
             $('#btnFlip').click(() => {
                 $('.content').toggleClass('flipped');
@@ -56,11 +65,17 @@
                 $('.content').toggleClass('zachMode');
             });
 
+            $('#btnQueueAdd').click(() => {
+                addToQueue(window.location.href);
+            });
+
             if (!JSON.parse(localStorage.getItem('autoplay'))) $('#btnAutoPlay').addClass("autoPlayActive");
             $('#btnAutoPlay').click(() => {
                 localStorage.setItem('autoplay', !JSON.parse(localStorage.getItem('autoplay')));
                 $('#btnAutoPlay').toggleClass('autoPlayActive');
             });
+
+            if (!localStorage.getItem('myQueue')) localStorage.setItem('myQueue', '[]');
 
             waitForPlayer;
         }
