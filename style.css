@@ -203,7 +203,7 @@ body > div.content > div > div > div:nth-child(3) > div > div > h6 > span {
     justify-content: center;
     align-items: center;
 }
-.modal-content {
+.queue-modal-content {
     flex-direction: column;
     justify-content: center;
     flex-wrap: nowrap;
