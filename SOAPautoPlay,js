@@ -55,6 +55,7 @@
             $('#divPlayerSelect').append('<div id="btnFlip" class="btn btn-primary">Flip</div>');
             $('#divPlayerSelect').append('<div id="btnZachMode" class="btn btn-primary"><img src="https://i.imgur.com/bPmmuES.png">Zach Mode</div>');
             $('#divPlayerSelect').append('<div id="btnQueueAdd" class="btn btn-primary">Add To Queue</div>');
+            $('#divPlayerSelect').append('<div id="btnQueue" class="btn btn-primary">My Queue</div>');
 
             $('#btnFlip').click(() => {
                 $('.content').toggleClass('flipped');
@@ -66,6 +67,10 @@
             });
 
             $('#btnQueueAdd').click(() => {
+                addToQueue(window.location.href);
+            });
+
+            $('#btnQueue').click(() => {
                 addToQueue(window.location.href);
             });
 

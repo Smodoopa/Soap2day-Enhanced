@@ -169,6 +169,11 @@ body > div > div:nth-child(1) > h3 {
     background-color: #ffac00a8;
     border-radius: 23px;
 }
+#btnQueue {
+    margin-left: 10px;
+    background-color: red;
+    border-radius: 23px;
+}
 #btnSwitch {
     display: None;
 }
