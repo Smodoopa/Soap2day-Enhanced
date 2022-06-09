@@ -234,3 +234,11 @@ body > div.content > div > div > div:nth-child(3) > div > div > h6 > span {
     margin-left: auto;
     cursor: pointer;
 }
+.queue-details {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: #050505;
+    align-content: space-between;
+}
