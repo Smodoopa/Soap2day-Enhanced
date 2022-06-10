@@ -241,13 +241,14 @@ body > div.content > div > div > div:nth-child(3) > div > div > h6 > span {
     align-content: space-between;
 }
 .queue-table {
-    background-color: #0b0918;
+    background-color: #171717;
     width: 100%;
     border-top: 1px #414141 solid;
 }
 tr {
     line-height: 8px;
     font-size: 13px;
+    border-bottom: 1px solid #b7b7b71c;
 }
 th {
     text-align: left;
