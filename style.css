@@ -245,3 +245,23 @@ body > div.content > div > div > div:nth-child(3) > div > div > h6 > span {
     width: 100%;
     border-top: 1px #414141 solid;
 }
+tr {
+    line-height: 8px;
+    font-size: 13px;
+}
+th {
+    text-align: left;
+    padding: 8px;
+    text-shadow: black 0px 0px 10px;
+}
+td {
+    text-align: left;
+    padding: 8px;
+    text-shadow: black 0px 0px 10px;
+}
+tr:first-child {
+    border-bottom: 1px solid white;
+}
+.queue-table-headers {
+    background-color: black;
+}
