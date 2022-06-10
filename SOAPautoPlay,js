@@ -15,7 +15,6 @@
 (function() {
     'use strict';
     const my_css = GM_getResourceText("IMPORTED_CSS");
-    const audio = new Audio('https://cdn.sndup.net/y4kp/Discord%20notification%20-%20sound%20effect.mp3?token=_ckOW7waXns1Ae1LkONkDBlcIFNH083re3xN5iA8Cug&token_path=%2Fy4kp%2F&expires=1645393923');
 
     const removeSoapAnnoyingSound = setInterval(() => {
         let roll = Math.floor(Math.random() * 10);
@@ -24,7 +23,7 @@
 
     GM_addStyle(my_css);
 
-    if (localStorage.getItem('autoplay') == null) localStorage.setItem('autoplay', 'true');
+    if (!localStorage.getItem('autoplay')) localStorage.setItem('autoplay', 'false');
     removeSoapAnnoyingSound;
 
     const waitForPlayer = setInterval(() => {
@@ -58,7 +57,7 @@
         if (window.location.href.includes("enter.html")) {
             document.getElementById('btnhome').click();
         } else {
-            $('body').prepend('<div class="queue-modal"><div class="queue-modal-content"><div class="queue-details"><div class="server-header"><h3 class="header-text">My Queue</h3><div class="close-btn">X</div></div></div></div></div>');
+            $('body').prepend('<div class="queue-modal"><div class="queue-modal-content"><div class="queue-details"><div class="server-header"><h3 class="header-text">My Queue</h3><div class="close-btn">X</div></div><div class="queue-table"><tbody></tbody></div></div></div></div>');
 
             $('.navbar-nav').prepend('<li><a href="/"><img src="https://soap2day.ac/pic/title.png" style="width: 89px;height: 20px;"></a></li>');
             $('#divPlayerSelect').append('<div id="btnAutoPlay" class="btn btn-primary">Toggle AutoPlay</div>');

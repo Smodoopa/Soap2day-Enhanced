@@ -240,3 +240,8 @@ body > div.content > div > div > div:nth-child(3) > div > div > h6 > span {
     background: #050505;
     align-content: space-between;
 }
+.queue-table {
+    background-color: #0b0918;
+    width: 100%;
+    border-top: 1px #414141 solid;
+}
