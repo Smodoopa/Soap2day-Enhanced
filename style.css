@@ -278,6 +278,7 @@ td:first-child {
 th:first-child {
     width: 1em;
     text-align: center;
+    border-right: 1px solid #535353;
 }
 .queue-table-headers {
     background-color: black;
