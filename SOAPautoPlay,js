@@ -41,8 +41,8 @@
     const loadQueueModal = () => {
          var queue = JSON.parse(localStorage.getItem('myQueue'));
 
-         queue.forEach(item => {
-            $('.queue-table tr:last').after(`<tr><td><a href="${item[1]}">${item[0]}</a></td></tr>`)
+         queue.forEach((item, index) => {
+            $('.queue-table tr:last').after(`<tr><td>${index + 1}</td><td><a href="${item[1]}">${item[0]}</a></td></tr>`)
          });
 
          $('.queue-modal').css('display', 'flex');
@@ -54,7 +54,7 @@
         if (window.location.href.includes("enter.html")) {
             document.getElementById('btnhome').click();
         } else {
-            $('body').prepend('<div class="queue-modal"><div class="queue-modal-content"><div class="queue-details"><div class="server-header"><h3 class="header-text">My Queue</h3><div class="close-btn">X</div></div><table class="queue-table"><tbody><tr class="queue-table-headers"><th>Name</th></tr></tbody></table></div></div></div>');
+            $('body').prepend('<div class="queue-modal"><div class="queue-modal-content"><div class="queue-details"><div class="server-header"><h3 class="header-text">My Queue</h3><div class="close-btn">X</div></div><table class="queue-table"><tbody><tr class="queue-table-headers"><th>Order</th><th>Name</th></tr></tbody></table></div></div></div>');
 
             $('.navbar-nav').prepend('<li><a href="/"><img src="https://soap2day.ac/pic/title.png" style="width: 89px;height: 20px;"></a></li>');
             $('#divPlayerSelect').append('<div id="btnAutoPlay" class="btn btn-primary">Toggle AutoPlay</div>');
@@ -84,7 +84,7 @@
             $('.close-btn').click(() => {
                 $('.queue-modal').hide();
                 $('.content').toggleClass('blurred');
-                $('.queue-table').html('<tbody><tr class="queue-table-headers"><th>Name</th></tr></tbody>');
+                $('.queue-table').html('<tbody><tr class="queue-table-headers"><th>Order</th><th>Name</th></tr></tbody>');
             });
 
             if (!JSON.parse(localStorage.getItem('autoplay'))) $('#btnAutoPlay').addClass("autoPlayActive");

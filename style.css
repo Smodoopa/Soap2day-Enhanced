@@ -258,11 +258,15 @@ th {
 }
 td {
     text-align: left;
-    padding: 8px;
+    padding: 20px;
     text-shadow: black 0px 0px 10px;
 }
 tr:first-child {
     border-bottom: 1px solid #535353;
+}
+td:first-child {
+    text-align: center;
+    width: auto;
 }
 .queue-table-headers {
     background-color: black;
