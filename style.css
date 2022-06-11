@@ -211,6 +211,7 @@ body > div.content > div > div > div:nth-child(3) > div > div > h6 > span {
     align-content: center;
     width: 37em;
     align-items: center;
+    border: 1px solid #ffffff38;
 }
 .server-header {
     text-align: center;
