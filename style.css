@@ -245,6 +245,9 @@ body > div.content > div > div > div:nth-child(3) > div > div > h6 > span {
     background-color: #171717;
     width: 100%;
     border-top: 1px #414141 solid;
+    height: 400px;
+    overflow-y: scroll;
+    display: table-column;
 }
 tr {
     line-height: 8px;
@@ -258,11 +261,12 @@ th {
 }
 td {
     text-align: left;
-    padding: 20px;
+    padding: 10px;
     text-shadow: black 0px 0px 10px;
 }
 tr:first-child {
     border-bottom: 1px solid #535353;
+    height: 30px;
 }
 td:first-child {
     text-align: center;
