@@ -267,6 +267,10 @@ tr:first-child {
 td:first-child {
     text-align: center;
     width: auto;
+    border-right: 1px solid #535353;
+}
+th:first-child {
+    text-align: center;
 }
 .queue-table-headers {
     background-color: black;
