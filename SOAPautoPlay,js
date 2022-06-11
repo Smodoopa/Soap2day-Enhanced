@@ -16,15 +16,9 @@
     'use strict';
     const my_css = GM_getResourceText("IMPORTED_CSS");
 
-    const removeSoapAnnoyingSound = setInterval(() => {
-        let roll = Math.floor(Math.random() * 10);
-        if (roll == 5) audio.play();
-    }, 10000);
-
     GM_addStyle(my_css);
 
     if (!localStorage.getItem('autoplay')) localStorage.setItem('autoplay', 'false');
-    removeSoapAnnoyingSound;
 
     const waitForPlayer = setInterval(() => {
         if ($('.jw-video').length > 0) {
@@ -36,25 +30,23 @@
         }
     }, 1000);
 
-    const addToQueue = url => {
+    const addToQueue = () => {
         var myQueue = JSON.parse(localStorage.getItem('myQueue'));
 
-        myQueue.push(url);
+        myQueue.push([$('#t1').text(), window.location.href]);
 
         localStorage.setItem("myQueue", JSON.stringify(myQueue));
-    }
-
-    const toggleModal = () => {
-        $('.queue-modal').css('display', 'flex');
-        loadQueueModal();
     }
 
     const loadQueueModal = () => {
          var queue = JSON.parse(localStorage.getItem('myQueue'));
 
          queue.forEach(item => {
-            $('.queue-table tr:last').after('<tr><td>Test Item</td></tr>')
+            $('.queue-table tr:last').after(`<tr><td><a href="${item[1]}">${item[0]}</a></td></tr>`)
          });
+
+         $('.queue-modal').css('display', 'flex');
+         $('.content').toggleClass('blurred');
     }
 
     setTimeout(() => {
@@ -82,15 +74,17 @@
             });
 
             $('#btnQueueAdd').click(() => {
-                addToQueue(window.location.href);
+                addToQueue();
             });
 
             $('#btnQueue').click(() => {
-                toggleModal();
+                loadQueueModal();
             });
 
             $('.close-btn').click(() => {
                 $('.queue-modal').hide();
+                $('.content').toggleClass('blurred');
+                $('.queue-table').html('<tbody><tr class="queue-table-headers"><th>Name</th></tr></tbody>');
             });
 
             if (!JSON.parse(localStorage.getItem('autoplay'))) $('#btnAutoPlay').addClass("autoPlayActive");

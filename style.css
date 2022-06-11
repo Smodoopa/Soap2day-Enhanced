@@ -266,3 +266,6 @@ tr:first-child {
 .queue-table-headers {
     background-color: black;
 }
+.blurred {
+    filter: blur(5px);
+}
