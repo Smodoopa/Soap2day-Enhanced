@@ -285,3 +285,6 @@ th:first-child {
 .blurred {
     filter: blur(5px);
 }
+.noscroll {
+    overflow: hidden;
+}
