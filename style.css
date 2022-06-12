@@ -168,7 +168,6 @@ body > div > div:nth-child(1) > h3 {
 #btnZachMode > img {
     width: 17px;
     height: 22px;
-    margin-right: 5px;
 }
 #btnQueue {
     margin-left: 20px;
@@ -188,7 +187,7 @@ body > div > div:nth-child(1) > h3 {
     display: None;
 }
 .autoPlayActive {
-    background-color: rgb(89 40 16) !important;
+    background-color: #ff791a !important;
 }
 .panel-default>.panel-heading {
     color: #ffffff;
@@ -313,4 +312,8 @@ th:first-child {
     align-content: center;
     align-items: center;
     justify-content: center;
+}
+.label.label-info {
+    background-color: #000000 !important;
+    font-weight: 700;
 }
