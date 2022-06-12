@@ -143,13 +143,13 @@ body > div > div:nth-child(1) > h3 {
     align-items: start;
 }
 .btn-primary {
-    background-color: #337ab7a8;
+    background-color: #3f3f3fa8;
     border-radius: 23px;
 }
 #btnAutoPlay {
     margin-left: 10px;
 }
-#btnAutoPlay {
+#btnAutoPlay:hover {
     background-color: #ff791a;
 }
 #btnFlip {
