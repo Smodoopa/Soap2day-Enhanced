@@ -50,12 +50,44 @@
          $('body').toggleClass('noscroll');
     }
 
+    const closeQueueModal = () => {
+            $('.queue-modal').hide();
+            $('.content').toggleClass('blurred');
+            $('.queue-table').html('<tbody><tr class="queue-table-headers"><th>Order</th><th>Name</th></tr></tbody>');
+            $('body').toggleClass('noscroll');
+    }
+
+    const listenForEndOfMedia = setInterval(() => {
+        var elapsed = $('div.jw-icon.jw-icon-inline.jw-text.jw-reset.jw-text-elapsed').text(),
+        duration = $('.jw-text-duration').text();
+
+    
+        var a = elapsed.split(':'),
+            b = duration.split(':');
+        
+        var elapsedSeconds = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]),
+            durationSeconds = (+b[0]) * 60 * 60 + (+b[1]) * 60 + (+b[2]);
+
+        if ((durationSeconds - elapsedSeconds) == 5) playNextInQueue();
+    }, 1000);
+
+    const playNextInQueue = () => {
+        var queue = JSON.parse(localStorage.getItem('myQueue'));
+
+        if (queue.length < 1) return;
+
+        var nextMedia = queue.shift();
+        localStorage.setItem("myQueue", JSON.stringify(queue));
+        
+        window.location.replace(nextMedia[1]);
+    }
+
     setTimeout(() => {
         // Bypasses Idle check.
         if (window.location.href.includes("enter.html")) {
             document.getElementById('btnhome').click();
         } else {
-            $('body').prepend('<div class="queue-modal"><div class="queue-modal-content"><div class="queue-details"><div class="server-header"><h3 class="header-text">My Queue</h3><div class="close-btn">X</div></div><table class="queue-table"><tbody><tr class="queue-table-headers"><th>Order</th><th>Name</th></tr></tbody></table><div class="queue-button-panel"><div id="btnQueueClear" class="btn btn-primary"></div></div></div></div></div>');
+            $('body').prepend('<div class="queue-modal"><div class="queue-modal-content"><div class="queue-details"><div class="server-header"><h3 class="header-text">My Queue</h3><div class="close-btn">X</div></div><table class="queue-table"><tbody><tr class="queue-table-headers"><th>Order</th><th>Name</th></tr></tbody></table><div class="queue-button-panel"><div id="btnQueueClear" class="btn btn-primary">Clear Queue</div></div></div></div></div>');
 
             $('.navbar-nav').prepend('<li><a href="/"><img src="https://soap2day.ac/pic/title.png" style="width: 89px;height: 20px;"></a></li>');
             $('#divPlayerSelect').append('<div id="btnAutoPlay" class="btn btn-primary">Toggle AutoPlay</div>');
@@ -83,10 +115,13 @@
             });
 
             $('.close-btn').click(() => {
-                $('.queue-modal').hide();
-                $('.content').toggleClass('blurred');
-                $('.queue-table').html('<tbody><tr class="queue-table-headers"><th>Order</th><th>Name</th></tr></tbody>');
-                $('body').toggleClass('noscroll');
+                closeQueueModal();
+            });
+
+            $('#btnQueueClear').click(() => {
+                localStorage.setItem('myQueue', '[]');
+                closeQueueModal();
+                loadQueueModal();
             });
 
             if (!JSON.parse(localStorage.getItem('autoplay'))) $('#btnAutoPlay').addClass("autoPlayActive");

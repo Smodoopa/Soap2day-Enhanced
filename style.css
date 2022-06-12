@@ -147,17 +147,23 @@ body > div > div:nth-child(1) > h3 {
     border-radius: 23px;
 }
 #btnAutoPlay {
-    background-color: #ff791a;
     margin-left: 10px;
+}
+#btnAutoPlay {
+    background-color: #ff791a;
 }
 #btnFlip {
-    background-color: #5528ab;
     margin-left: 10px;
 }
+#btnFlip:hover {
+    background-color: #5528ab;
+}
 #btnZachMode {
-    background-color: #736f7b;
     margin-left: 10px;
     display: inline-block;
+}
+#btnZachMode:hover {
+    background-color: #736f7b;
 }
 #btnZachMode > img {
     width: 17px;
@@ -166,13 +172,17 @@ body > div > div:nth-child(1) > h3 {
 }
 #btnQueue {
     margin-left: 20px;
-    background-color: red;
     border-radius: 23px;
+}
+#btnQueue:hover {
+    background-color: red;
 }
 #btnQueueAdd {
     margin-left: 20px;
-    background-color: red;
     border-radius: 23px;
+}
+#btnQueueAdd:hover {
+    background-color: red;
 }
 #btnSwitch {
     display: None;
@@ -289,7 +299,7 @@ th:first-child {
 .noscroll {
     overflow: hidden;
 }
-#btnQueueClear {
+#btnQueueClear:hover {
     background-color: #762824;
 }
 .queue-button-panel {
