@@ -42,7 +42,7 @@
          var queue = JSON.parse(localStorage.getItem('myQueue'));
 
          queue.forEach((item, index) => {
-            $('.queue-table tr:last').after(`<tr><td>${index + 1}</td><td class="queueTableRowData"><a href="${item[1]}">${item[0]}</a><div class="btnQueueTable btnQueueDown"></div><div class="btnQueueTable btnQueueUp"></div><div class="btnQueueTable btnQueueDelete"></div></td></tr>`)
+            $('.queue-table tr:last').after(`<tr><td>${index + 1}</td><td class="queueTableRowData"><a href="${item[1]}">${item[0]}</a><div id="btnQueueDown" class="btnQueueTable"></div><div id="btnQueueUp" class="btnQueueTable"></div><div id="btnQueueDelete" class="btnQueueTable"></div></td></tr>`)
          });
 
          $('.queue-modal').css('display', 'flex');
@@ -116,6 +116,16 @@
 
             $('.close-btn').click(() => {
                 closeQueueModal();
+            });
+
+            $('.btnQueueDelete').click(() => {
+                console.log('2');
+                var myQueue = JSON.parse(localStorage.getItem('myQueue'));
+
+                myQueue.splice($(this).parent().index() - 1, 1);
+                localStorage.setItem("myQueue", JSON.stringify(queue));
+                closeQueueModal();
+                loadQueueModal();
             });
 
             $('#btnQueueClear').click(() => {

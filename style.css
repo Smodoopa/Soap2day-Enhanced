@@ -324,15 +324,15 @@ th:first-child {
     cursor: pointer;
     border-radius: 4px;
 }
-.btnQueueUp {
+#btnQueueUp {
     margin-left: 6px;
     background-color: #ffffff;
 }
-.btnQueueDown {
+#btnQueueDown {
     margin-left: auto;
     background-color: #ffffff;
 }
-.btnQueueDelete {
+#btnQueueDelete {
     background-color: #a73939;
     margin-left: 6px;
 }
