@@ -24,7 +24,7 @@
         if ($('.jw-video').length > 0) {
             clearInterval(waitForPlayer);
             document.getElementById('player').scrollIntoView();
-            $('#btnTurnOff').click();
+            //$('#divTurnOff').click();
             $('.jw-video').get(0).play();
             console.log('[SOAPTV AutoPlay] Autoplay initiated.');
         }
@@ -42,7 +42,7 @@
          var queue = JSON.parse(localStorage.getItem('myQueue'));
 
          queue.forEach((item, index) => {
-            $('.queue-table tr:last').after(`<tr><td>${index + 1}</td><td><a href="${item[1]}">${item[0]}</a></td></tr>`)
+            $('.queue-table tr:last').after(`<tr><td>${index + 1}</td><td><a href="${item[1]}">${item[0]}</a><div class="btnQueueTable btnQueueDown"></div><div class="btnQueueTable btnQueueUp"></div><div class="btnQueue btnQueueDelete"></div></td></tr>`)
          });
 
          $('.queue-modal').css('display', 'flex');
@@ -90,7 +90,7 @@
             $('body').prepend('<div class="queue-modal"><div class="queue-modal-content"><div class="queue-details"><div class="server-header"><h3 class="header-text">My Queue</h3><div class="close-btn">X</div></div><table class="queue-table"><tbody><tr class="queue-table-headers"><th>Order</th><th>Name</th></tr></tbody></table><div class="queue-button-panel"><div id="btnQueueClear" class="btn btn-primary">Clear Queue</div></div></div></div></div>');
 
             $('.navbar-nav').prepend('<li><a href="/"><img src="https://soap2day.ac/pic/title.png" style="width: 89px;height: 20px;"></a></li>');
-            $('#divPlayerSelect').append('<div id="btnAutoPlay" class="btn btn-primary">Toggle AutoPlay</div>');
+            $('#divPlayerSelect').append('<div id="btnAutoPlay" class="btn btn-primary">Auto-Play</div>');
             $('#divPlayerSelect').append('<div id="btnFlip" class="btn btn-primary">Flip</div>');
             $('#divPlayerSelect').append('<div id="btnZachMode" class="btn btn-primary"><img src="https://i.imgur.com/bPmmuES.png"></div>');
             $('#divPlayerSelect').append('<span style="margin-left: 15px;font-weight: 900;">|</span>');
@@ -124,7 +124,8 @@
                 loadQueueModal();
             });
 
-            if (!JSON.parse(localStorage.getItem('autoplay'))) $('#btnAutoPlay').addClass("autoPlayActive");
+            if (JSON.parse(localStorage.getItem('autoplay'))) $('#btnAutoPlay').addClass("autoPlayActive");
+
             $('#btnAutoPlay').click(() => {
                 localStorage.setItem('autoplay', !JSON.parse(localStorage.getItem('autoplay')));
                 $('#btnAutoPlay').toggleClass('autoPlayActive');
@@ -132,7 +133,7 @@
 
             if (!localStorage.getItem('myQueue')) localStorage.setItem('myQueue', '[]');
 
-            waitForPlayer;
+            if (JSON.parse(localStorage.getItem('autoplay'))) waitForPlayer;
         }
     }, 2500);
 })();

@@ -317,3 +317,22 @@ th:first-child {
     background-color: #000000 !important;
     font-weight: 700;
 }
+.btnQueueTable {
+    width: 30px;
+    height: 30px;
+    align-self: flex-end;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.btnQueueUp {
+    margin-left: 6px;
+    background-color: #ffffff;
+}
+.btnQueueDown {
+    margin-left: auto;
+    background-color: #ffffff;
+}
+.btnQueueDelete {
+    background-color: #a73939;
+    margin-left: 6px;
+}
