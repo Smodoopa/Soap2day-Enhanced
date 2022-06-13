@@ -274,6 +274,7 @@ td {
     padding: 10px;
     text-shadow: black 0px 0px 10px;
     line-height: 20px;
+    display: flex;
 }
 tr:first-child {
     border-bottom: 1px solid #535353;
