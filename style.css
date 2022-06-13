@@ -274,7 +274,6 @@ td {
     padding: 10px;
     text-shadow: black 0px 0px 10px;
     line-height: 20px;
-    display: flex;
 }
 tr:first-child {
     border-bottom: 1px solid #535353;
@@ -336,4 +335,9 @@ th:first-child {
 .btnQueueDelete {
     background-color: #a73939;
     margin-left: 6px;
+}
+.queueTableRowData {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
 }
