@@ -331,6 +331,7 @@ th:first-child {
 .btnQueueTable img {
     width: 15px;
     height: 15px;
+    pointer-events: none; 
 }
 #btnQueueUp {
     margin-left: 6px;
