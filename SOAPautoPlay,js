@@ -45,6 +45,55 @@
             $('.queue-table tr:last').after(`<tr><td>${index + 1}</td><td class="queueTableRowData"><a href="${item[1]}">${item[0]}</a><div id="btnQueueDown" class="btnQueueTable"></div><div id="btnQueueUp" class="btnQueueTable"></div><div id="btnQueueDelete" class="btnQueueTable"></div></td></tr>`)
          });
 
+         $('.queueTableRowData > #btnQueueDelete').click(e => {
+                var myQueue = JSON.parse(localStorage.getItem('myQueue'));
+                myQueue.splice($(e.target.parentElement.parentElement).index() - 1, 1);
+                localStorage.setItem("myQueue", JSON.stringify(myQueue));
+                closeQueueModal();
+                loadQueueModal();
+        });
+
+
+
+        $('.queueTableRowData > #btnQueueUp').click(e => {
+            console.log("hello there");
+            var myQueue = JSON.parse(localStorage.getItem('myQueue')),
+                rowToMove = $(e.target.parentElement.parentElement).index() - 1;
+
+            if (rowToMove == 0) return;
+
+
+            let movedRowDataTemp = myQueue[rowToMove];
+            myQueue[rowToMove] = myQueue[rowToMove - 1];
+            myQueue[rowToMove - 1] = movedRowDataTemp;
+
+            localStorage.setItem("myQueue", JSON.stringify(myQueue));
+
+            closeQueueModal();
+            loadQueueModal();
+
+        });
+
+
+        $('.queueTableRowData > #btnQueueDown').click(e => {
+            var myQueue = JSON.parse(localStorage.getItem('myQueue')),
+                rowToMove = $(e.target.parentElement.parentElement).index() - 1;
+
+            if (rowToMove == (myQueue.length - 1)) return;
+
+            let movedRowDataTemp = myQueue[rowToMove];
+            myQueue[rowToMove] = myQueue[rowToMove + 1];
+            myQueue[rowToMove + 1] = movedRowDataTemp;
+
+
+            localStorage.setItem("myQueue", JSON.stringify(myQueue));
+
+            closeQueueModal();
+            loadQueueModal();
+        });
+
+
+
          $('.queue-modal').css('display', 'flex');
          $('.content').toggleClass('blurred');
          $('body').toggleClass('noscroll');
@@ -61,10 +110,10 @@
         var elapsed = $('div.jw-icon.jw-icon-inline.jw-text.jw-reset.jw-text-elapsed').text(),
         duration = $('.jw-text-duration').text();
 
-    
+
         var a = elapsed.split(':'),
             b = duration.split(':');
-        
+
         var elapsedSeconds = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]),
             durationSeconds = (+b[0]) * 60 * 60 + (+b[1]) * 60 + (+b[2]);
 
@@ -78,7 +127,7 @@
 
         var nextMedia = queue.shift();
         localStorage.setItem("myQueue", JSON.stringify(queue));
-        
+
         window.location.replace(nextMedia[1]);
     }
 
@@ -116,16 +165,6 @@
 
             $('.close-btn').click(() => {
                 closeQueueModal();
-            });
-
-            $('.btnQueueDelete').click(() => {
-                console.log('2');
-                var myQueue = JSON.parse(localStorage.getItem('myQueue'));
-
-                myQueue.splice($(this).parent().index() - 1, 1);
-                localStorage.setItem("myQueue", JSON.stringify(queue));
-                closeQueueModal();
-                loadQueueModal();
             });
 
             $('#btnQueueClear').click(() => {
