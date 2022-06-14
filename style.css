@@ -263,6 +263,9 @@ tr {
     font-size: 13px;
     border-bottom: 1px solid #b7b7b71c;
 }
+tr:hover {
+    background-color: #80808030;
+}
 th {
     text-align: left;
     padding: 8px;
