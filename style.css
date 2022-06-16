@@ -180,6 +180,12 @@ body > div > div:nth-child(1) > h3 {
     margin-left: 20px;
     border-radius: 23px;
 }
+#btnAddAllEpisodes {
+    margin-left: 20px;
+}
+#btnAddAllEpisodes:hover {
+    background-color: purple;
+}
 #btnQueueAdd:hover {
     background-color: red;
 }

@@ -41,6 +41,23 @@
         localStorage.setItem("myQueue", JSON.stringify(myQueue));
     }
 
+    const addAllEpisodesToQueue = () => {
+        var myQueue = JSON.parse(localStorage.getItem('myQueue'));
+
+        var EpisodeObjList = [];
+
+        Array.from($('.col-md-6')).forEach(episode => {
+        var episodeObj = $(episode)[0];
+        EpisodeObjList.push([episodeObj.baseURI, episode.outerText]);
+        });
+
+        EpisodeObjList.forEach(episodeObj => {
+            myQueue.push(episodeObj);
+        });
+
+        localStorage.setItem("myQueue", JSON.stringify(myQueue));
+    }
+
     const loadQueueModal = () => {
          var queue = JSON.parse(localStorage.getItem('myQueue'));
 
@@ -140,6 +157,8 @@
             $('#divPlayerSelect').append('<span style="margin-left: 15px;font-weight: 900;">|</span>');
             $('#divPlayerSelect').append('<div id="btnQueue" class="btn btn-primary">My Queue</div>');
             $('#divPlayerSelect').append('<div id="btnQueueAdd" class="btn btn-primary">+</div>');
+            $('#divPlayerSelect').append('<div id="btnAddAllEpisodes" class="btn btn-primary">Add All Episodes</div>');
+            
 
             $('#btnFlip').click(() => {
                 $('.content').toggleClass('flipped');
@@ -166,6 +185,10 @@
                 localStorage.setItem('myQueue', '[]');
                 closeQueueModal();
                 loadQueueModal();
+            });
+
+            $('#btnAddAllEpisodes').click(() => {
+                addAllEpisodesToQueue();
             });
 
             if (JSON.parse(localStorage.getItem('autoplay'))) $('#btnAutoPlay').addClass("autoPlayActive");
