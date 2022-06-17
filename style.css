@@ -243,6 +243,7 @@ body > div.content > div > div > div:nth-child(3) > div > div > h6 > span {
     align-content: center;
     align-items: center;
     justify-content: flex-start;
+    background-color: #121212;
 }
 .header-text {
     flex: 1 1 auto;
@@ -305,7 +306,7 @@ th:first-child {
     border-right: 1px solid #535353;
 }
 .queue-table-headers {
-    background-color: black;
+    background-color: #0c0c0c;
 }
 .blurred {
     filter: blur(5px);
@@ -322,7 +323,7 @@ th:first-child {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    background-color: #000000;
+    background-color: #121212;
     height: 50px;
     align-content: center;
     align-items: center;
