@@ -192,6 +192,12 @@ body > div > div:nth-child(1) > h3 {
 #btnSwitch {
     display: None;
 }
+#btnShuffleQueue {
+    margin-left: 10px;
+}
+#btnShuffleQueue:hover {
+    background-color: purple;
+}
 .autoPlayActive {
     background-color: #ff791a !important;
 }
@@ -260,7 +266,7 @@ body > div.content > div > div > div:nth-child(3) > div > div > h6 > span {
     background-color: #171717;
     width: 100%;
     border-top: 1px #414141 solid;
-    height: 400px;
+    height: 389px;
     overflow-y: scroll;
     display: table-column;
 }

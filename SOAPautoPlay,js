@@ -24,13 +24,19 @@
     if (!localStorage.getItem('autoplay')) localStorage.setItem('autoplay', 'false');
 
     const waitForPlayer = setInterval(() => {
+        var isAutoPlayOn = JSON.parse(localStorage.getItem('autoplay'));
+
+        if (!isAutoPlayOn) clearInterval(waitForPlayer);
+
         if ($('.jw-video').length > 0) {
-            clearInterval(waitForPlayer);
-            document.getElementById('player').scrollIntoView();
-            //$('#divTurnOff').click();
-            $('.jw-video').get(0).play();
-            console.log('[SOAPTV AutoPlay] Autoplay initiated.');
+                clearInterval(waitForPlayer);
+                document.getElementById('player').scrollIntoView();
+                //$('#divTurnOff').click();
+                $('.jw-video').get(0).play();
+                listenForEndOfMedia;
+                console.log('[SOAPTV AutoPlay] Autoplay initiated.');
         }
+
     }, 1000);
 
     const addToQueue = () => {
@@ -48,7 +54,7 @@
 
         Array.from($('.col-md-6')).forEach(episode => {
         var episodeObj = $(episode)[0];
-        EpisodeObjList.push([episodeObj.baseURI, episode.outerText]);
+        EpisodeObjList.push([episode.outerText, episodeObj.baseURI]);
         });
 
         EpisodeObjList.forEach(episodeObj => {
@@ -120,14 +126,22 @@
     }
 
     const listenForEndOfMedia = setInterval(() => {
-        var elapsed = $('div.jw-icon.jw-icon-inline.jw-text.jw-reset.jw-text-elapsed').text(),
-        duration = $('.jw-text-duration').text();
+        var elapsedSeconds, durationSeconds;
 
+        var elapsed = $('div.jw-icon.jw-icon-inline.jw-text.jw-reset.jw-text-elapsed').text(),
+            duration = $('.jw-text-duration').text();
+        
         var a = elapsed.split(':'),
             b = duration.split(':');
-
-        var elapsedSeconds = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]),
-            durationSeconds = (+b[0]) * 60 * 60 + (+b[1]) * 60 + (+b[2]);
+        
+        //Repeat code. Gross. I have to go to bed. :(
+        if (a.length == 3) elapsedSeconds = ((parseInt(a[0]) * 60) * 60) + (parseInt(a[1]) * 60) + parseInt(a[2]);
+        if (a.length == 2) elapsedSeconds = (parseInt(a[0]) * 60) + parseInt(a[1]);
+        if (a.length == 1) elasedSeconds = parseInt(a[0]);
+        
+        if (b.length == 3) durationSeconds = ((parseInt(b[0]) * 60) * 60) + (parseInt(b[1]) * 60) + parseInt(b[2]);
+        if (b.length == 2) durationSeconds = (parseInt(b[0]) * 60) + parseInt(b[1]);
+        if (b.length == 1) durationSeconds = parseInt(b[0]);
 
         if ((durationSeconds - elapsedSeconds) == 5) playNextInQueue();
     }, 1000);
@@ -143,12 +157,26 @@
         window.location.replace(nextMedia[1]);
     }
 
+    const shuffleQueue = () => {
+        var queue = JSON.parse(localStorage.getItem('myQueue'));
+
+        for (let i = queue.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [queue[i], queue[j]] = [queue[j], queue[i]];
+        }
+
+        localStorage.setItem("myQueue", JSON.stringify(myQueue));
+
+        closeQueueModal();
+        loadQueueModal();
+    }
+
     setTimeout(() => {
         // Bypasses Idle check.
         if (window.location.href.includes("enter.html")) {
             document.getElementById('btnhome').click();
         } else {
-            $('body').prepend('<div class="queue-modal"><div class="queue-modal-content"><div class="queue-details"><div class="server-header"><h3 class="header-text">My Queue</h3><div class="close-btn">X</div></div><table class="queue-table"><tbody><tr class="queue-table-headers"><th>Order</th><th>Name</th></tr></tbody></table><div class="queue-button-panel"><div id="btnQueueClear" class="btn btn-primary">Clear Queue</div></div></div></div></div>');
+            $('body').prepend('<div class="queue-modal"><div class="queue-modal-content"><div class="queue-details"><div class="server-header"><h3 class="header-text">My Queue</h3><div class="close-btn">X</div></div><table class="queue-table"><tbody><tr class="queue-table-headers"><th>Order</th><th>Name</th></tr></tbody></table><div class="queue-button-panel"><div id="btnQueueClear" class="btn btn-primary">Clear Queue</div><div id="btnShuffleQueue" class="btn btn-primary">Shuffle</div></div></div></div></div>');
 
             $('.navbar-nav').prepend('<li><a href="/"><img src="https://soap2day.ac/pic/title.png" style="width: 89px;height: 20px;"></a></li>');
             $('#divPlayerSelect').append('<div id="btnAutoPlay" class="btn btn-primary">Auto-Play</div>');
@@ -157,6 +185,7 @@
             $('#divPlayerSelect').append('<span style="margin-left: 15px;font-weight: 900;">|</span>');
             $('#divPlayerSelect').append('<div id="btnQueue" class="btn btn-primary">My Queue</div>');
             $('#divPlayerSelect').append('<div id="btnQueueAdd" class="btn btn-primary">+</div>');
+            $('#divPlayerSelect').append('<span style="margin-left: 15px;font-weight: 900;">|</span>');
             $('#divPlayerSelect').append('<div id="btnAddAllEpisodes" class="btn btn-primary">Add All Episodes</div>');
             
 
@@ -185,6 +214,10 @@
                 localStorage.setItem('myQueue', '[]');
                 closeQueueModal();
                 loadQueueModal();
+            });
+
+            $('btnShuffleQueue').click(() => {
+                shuffleQueue();
             });
 
             $('#btnAddAllEpisodes').click(() => {
