@@ -370,3 +370,33 @@ th:first-child {
     flex-wrap: nowrap;
     align-items: center;
 }
+.border-oriental {
+    background-image: url(https://i.imgur.com/xgMA5CP.png);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 10000000;
+    pointer-events: none;
+    display: none;
+}
+.flowers-gif {
+    background-image: url(https://pa1.narvii.com/7531/050aa92…r1-653-400_hq.gif);
+    width: 100%;
+    height: 102%;
+    opacity: 0.4;
+    position: fixed;
+    z-index: 1000000;
+    pointer-events: none;
+    display: none;
+}
+.saturate {
+    filter: saturate(3.5);
+}
+#btnAustinMode {
+    margin-left: 10px;
+    display: inline-block;
+}
+#btnAustinMode img {
+    width: 17px;
+    height: 22px;
+}

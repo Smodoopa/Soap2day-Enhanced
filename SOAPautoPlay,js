@@ -64,6 +64,10 @@
         localStorage.setItem("myQueue", JSON.stringify(myQueue));
     }
 
+    const toggleAustinMode = () => {
+        
+    }
+
     const loadQueueModal = () => {
          var queue = JSON.parse(localStorage.getItem('myQueue'));
 
