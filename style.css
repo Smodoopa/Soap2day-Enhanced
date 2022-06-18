@@ -396,6 +396,9 @@ th:first-child {
     margin-left: 10px;
     display: inline-block;
 }
+#btnAustinMode:hover {
+    background-color: red;
+}
 #btnAustinMode img {
     width: 17px;
     height: 22px;
