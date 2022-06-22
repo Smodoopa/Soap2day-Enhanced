@@ -53,8 +53,13 @@
         var EpisodeObjList = [];
 
         Array.from($('.col-md-6')).forEach(episode => {
-        var episodeObj = $(episode)[0];
-        EpisodeObjList.push([episode.outerText, episodeObj.baseURI]);
+
+        var episodeObj = $(episode)[0].firstChild;
+        
+        var episodeLink = $(episodeObj)[0].href;
+        
+        
+        EpisodeObjList.push([episode.outerText, episodeLink]);
         });
 
         EpisodeObjList.forEach(episodeObj => {
@@ -72,7 +77,11 @@
          var queue = JSON.parse(localStorage.getItem('myQueue'));
 
          queue.forEach((item, index) => {
-            $('.queue-table tr:last').after(`<tr><td>${index + 1}</td><td class="queueTableRowData"><a href="${item[1]}">${item[0]}</a><div id="btnQueueDown" class="btnQueueTable"><img src="${down_img}" /></div><div id="btnQueueUp" class="btnQueueTable"><img src="${up_img}" /></div><div id="btnQueueDelete" class="btnQueueTable"><img src="${x_img}" /></div></td></tr>`)
+            if (index == 0) {
+                $('.queue-table tr:last').after(`<tr><td>${index + 1}</td><td class="queueTableRowData"><a href="${item[1]}">${item[0]}</a><div class="upNextLabel">Up Next</div><div id="btnQueueDown" class="btnQueueTable"><img src="${down_img}" /></div><div id="btnQueueUp" class="btnQueueTable"><img src="${up_img}" /></div><div id="btnQueueDelete" class="btnQueueTable"><img src="${x_img}" /></div></td></tr>`);
+            } else {
+                $('.queue-table tr:last').after(`<tr><td>${index + 1}</td><td class="queueTableRowData"><a href="${item[1]}">${item[0]}</a><div id="btnQueueDown" class="btnQueueTable"><img src="${down_img}" /></div><div id="btnQueueUp" class="btnQueueTable"><img src="${up_img}" /></div><div id="btnQueueDelete" class="btnQueueTable"><img src="${x_img}" /></div></td></tr>`);
+            }
          });
 
          $('.queueTableRowData > #btnQueueDelete').click(e => {
@@ -84,7 +93,6 @@
         });
 
         $('.queueTableRowData > #btnQueueUp').click(e => {
-            console.log("hello there");
             var myQueue = JSON.parse(localStorage.getItem('myQueue')),
                 rowToMove = $(e.target.parentElement.parentElement).index() - 1;
 
@@ -205,11 +213,18 @@
                 $('.content').toggleClass('zachMode');
             });
 
+
+            var audio = new Audio('https://cdn.sndup.net/zqt5/Naruto_Soundtrack_-_Naruto_Main_The_(getmp3pro).mp3?token=iIdSwCO113qHS6i4xYD4tyXfe9MMurp6g5BMwCz0Vvo&token_path=%2Fzqt5%2F&expires=1655582916');
             $('#btnAustinMode').click(() => {
                 $('.content').toggleClass('saturate');
                 $('.border-oriental').toggle();
                 $('.flowers-gif').toggle();
 
+                if ($('.border-oriental').css('display') == 'block') {
+                    audio.play();
+                } else {
+                    audio.pause();
+                }
             });
 
             $('#btnQueueAdd').click(() => {
