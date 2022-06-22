@@ -225,6 +225,7 @@ body > div.content > div > div > div:nth-child(3) > div > div > h6 > span {
     align-items: center;
 }
 .queue-modal-content {
+    user-select: none;
     flex-direction: column;
     justify-content: center;
     flex-wrap: nowrap;
@@ -275,6 +276,7 @@ tr {
     line-height: 8px;
     font-size: 13px;
     border-bottom: 1px solid #b7b7b71c;
+    cursor: pointer;
 }
 tr:hover {
     background-color: #80808030;
@@ -409,4 +411,7 @@ th:first-child {
     border-radius: 5px;
     margin-left: 10px;
     color: black;
+}
+.queueTableRowData a {
+    max-width: 318px;
 }
