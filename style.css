@@ -14,6 +14,7 @@
     background-color: black !important;
     border-radius: 10px;
     border-color: black;
+    height: 45px;
     width: 80vw !important;
 }
 .panel {
@@ -45,10 +46,16 @@ body {
     border-color: transparent;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
     flex-direction: row;
     border-radius: 0px;
+    position: fixed;
+    z-index: 1000000;
+    width: 100%;
+    align-content: flex-start;
+    left: 0;
+    top: 0;
 }
 .navbar-nav>li {
     float: left;
@@ -77,10 +84,11 @@ body {
 }
 .btn-info {
     color: #fff;
+    width: 50px;
     border: none;
     border-radius: 0;
     background-color: #000000 !important;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 .panel-info > .panel-heading {
     color: #ffffff;

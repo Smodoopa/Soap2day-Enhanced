@@ -202,7 +202,6 @@
             $('#divPlayerSelect').append('<span style="margin-left: 15px;font-weight: 900;">|</span>');
             $('#divPlayerSelect').append('<div id="btnAddAllEpisodes" class="btn btn-primary">Add All Episodes</div>');
             
-
             $('#btnFlip').click(() => {
                 $('.content').toggleClass('flipped');
                 setTimeout(() => document.getElementById('player').scrollIntoView(), 600);
@@ -211,7 +210,6 @@
             $('#btnZachMode').click(() => {
                 $('.content').toggleClass('zachMode');
             });
-
 
             var audio = new Audio('https://cdn.sndup.net/zqt5/Naruto_Soundtrack_-_Naruto_Main_The_(getmp3pro).mp3?token=iIdSwCO113qHS6i4xYD4tyXfe9MMurp6g5BMwCz0Vvo&token_path=%2Fzqt5%2F&expires=1655582916');
             $('#btnAustinMode').click(() => {
