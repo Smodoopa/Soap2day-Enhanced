@@ -79,6 +79,9 @@ body {
     color: #ededed;
     font-weight: 600;
 }
+.navbar-form {
+    display: none;
+}
 .navbar-form .navbar-right {
     width: 100% !important;
     margin-right: 0px;

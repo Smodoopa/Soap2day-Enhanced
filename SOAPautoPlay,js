@@ -201,6 +201,8 @@
             $('#divPlayerSelect').append('<div id="btnQueueAdd" class="btn btn-primary">+</div>');
             $('#divPlayerSelect').append('<span style="margin-left: 15px;font-weight: 900;">|</span>');
             $('#divPlayerSelect').append('<div id="btnAddAllEpisodes" class="btn btn-primary">Add All Episodes</div>');
+
+            $('.navbar-nav').append('<li><i class="fa fa-search"></i></li>');
             
             $('#btnFlip').click(() => {
                 $('.content').toggleClass('flipped');
