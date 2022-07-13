@@ -15,8 +15,8 @@
     background-color: black !important;
     border-radius: 10px;
     border-color: black;
-    height: 45px;
-    width: 20vw !important;
+    height: 30px;
+    width: 17vw !important;
 }
 .myp1 {
     background-color: #0e0e0e !important;
@@ -66,7 +66,7 @@ body {
 }
 .navbar-nav {
     display: flex;
-    width: 80%;
+    width: 100%;
 }
 .navbar-nav>li {
     float: left;
