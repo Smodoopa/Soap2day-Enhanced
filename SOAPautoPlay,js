@@ -69,10 +69,6 @@
         localStorage.setItem("myQueue", JSON.stringify(myQueue));
     }
 
-    const toggleAustinMode = () => {
-
-    }
-
     const loadQueueModal = () => {
          var queue = JSON.parse(localStorage.getItem('myQueue'));
 
@@ -195,14 +191,15 @@
             $('#divPlayerSelect').append('<div id="btnAutoPlay" class="btn btn-primary">Auto-Play</div>');
             $('#divPlayerSelect').append('<div id="btnFlip" class="btn btn-primary">Flip</div>');
             $('#divPlayerSelect').append('<div id="btnZachMode" class="btn btn-primary"><img src="https://i.imgur.com/bPmmuES.png"></div>');
-            $('#divPlayerSelect').append('<div id="btnAustinMode" class="btn btn-primary"><img src="https://i.imgur.com/ovYUOxU.png"></div>');
             $('#divPlayerSelect').append('<span style="margin-left: 15px;font-weight: 900;">|</span>');
             $('#divPlayerSelect').append('<div id="btnQueue" class="btn btn-primary">My Queue</div>');
             $('#divPlayerSelect').append('<div id="btnQueueAdd" class="btn btn-primary">+</div>');
             $('#divPlayerSelect').append('<span style="margin-left: 15px;font-weight: 900;">|</span>');
             $('#divPlayerSelect').append('<div id="btnAddAllEpisodes" class="btn btn-primary">Add All Episodes</div>');
 
-            $('.navbar-nav').append('<li><i class="fa fa-search"></i></li>');
+            $('.navbar-nav').append('<li class=".btnSearch"><i class="fa fa-search"></i></li>');
+
+            $('.btnSearch').click(() => $('.navbar-form').toggle());
             
             $('#btnFlip').click(() => {
                 $('.content').toggleClass('flipped');
@@ -211,19 +208,6 @@
 
             $('#btnZachMode').click(() => {
                 $('.content').toggleClass('zachMode');
-            });
-
-            var audio = new Audio('https://cdn.sndup.net/zqt5/Naruto_Soundtrack_-_Naruto_Main_The_(getmp3pro).mp3?token=iIdSwCO113qHS6i4xYD4tyXfe9MMurp6g5BMwCz0Vvo&token_path=%2Fzqt5%2F&expires=1655582916');
-            $('#btnAustinMode').click(() => {
-                $('.content').toggleClass('saturate');
-                $('.border-oriental').toggle();
-                $('.flowers-gif').toggle();
-
-                if ($('.border-oriental').css('display') == 'block') {
-                    audio.play();
-                } else {
-                    audio.pause();
-                }
             });
 
             $(window).scroll(() => {
