@@ -18,8 +18,13 @@
     height: 45px;
     width: 80vw !important;
 }
+.myp1 {
+    background-color: #0e0e0e !important;
+}
 .panel {
     background-color: #131313;
+    border: none;
+    border-radius: 10px;
 }
 body {
     color: white;
@@ -117,7 +122,9 @@ body {
 }
 .panel-info > .panel-heading {
     color: #ffffff;
-    background-color: #181818;
+    background-color: #05839e;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
     border-color: #000000;
 }
 .alert-info {

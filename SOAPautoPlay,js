@@ -226,6 +226,14 @@
                 }
             });
 
+            $(window).scroll(() => {
+                if ($(window).scrollTop() == 0) {
+                    $('.navbar-default').show();
+                } else {
+                    $('.navbar-default').hide();
+                }
+            });
+
             $('#btnQueueAdd').click(() => {
                 addToQueue();
             });
