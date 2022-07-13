@@ -122,7 +122,7 @@ body {
 }
 .panel-info > .panel-heading {
     color: #ffffff;
-    background-color: #05839e;
+    background-color: #223c81 !important;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
     border-color: #000000;
