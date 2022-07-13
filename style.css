@@ -59,7 +59,6 @@ body {
 }
 .navbar-nav>li {
     float: left;
-    background-color: #7373730a;
     border-radius: 6px;
     margin: 10px;
 }
@@ -80,11 +79,13 @@ body {
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    width: 100%;
 }
 .btn-info {
     color: #fff;
     width: 50px;
+    height: 45px;
     border: none;
     border-radius: 0;
     background-color: #000000 !important;
