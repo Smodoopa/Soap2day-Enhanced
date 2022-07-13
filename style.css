@@ -1,7 +1,7 @@
 .content {
     background-color: #313030;
     transition: transform 0.5s, filter 0.5s;
-    margin-top: 70px;
+    margin-top: 70px !important;
 }
 .col-sm-8 {
     width: 100%;
