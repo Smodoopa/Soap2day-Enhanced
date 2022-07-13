@@ -197,7 +197,7 @@
             $('#divPlayerSelect').append('<span style="margin-left: 15px;font-weight: 900;">|</span>');
             $('#divPlayerSelect').append('<div id="btnAddAllEpisodes" class="btn btn-primary">Add All Episodes</div>');
 
-            $('.navbar-nav').append('<li class=".btnSearch"><i class="fa fa-search"></i></li>');
+            $('.navbar-nav').append('<li class="btnSearch"><i class="fa fa-search"></i></li>');
 
             $('.btnSearch').click(() => $('.navbar-form').toggle());
             
@@ -215,6 +215,7 @@
                     $('.navbar-default').show();
                 } else {
                     $('.navbar-default').hide();
+                    if ($('.navbar-form').css('display') == 'block') $('.navbar-form').toggle()
                 }
             });
 
