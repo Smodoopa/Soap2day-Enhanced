@@ -120,7 +120,7 @@ body {
     border-radius: 0;
     background-color: #000000 !important;
     border-radius: 10px;
-    display: none;
+    display: none !important;
 }
 .panel-info > .panel-heading {
     color: #ffffff;
