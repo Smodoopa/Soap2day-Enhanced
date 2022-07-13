@@ -200,7 +200,12 @@
             $('.navbar-nav').append('<li class="btnSearch"><i class="fa fa-search"></i></li>');
 
             $('.btnSearch').click(() => {
-                $('.navbar-nav').css('width', '80%');
+                if ($('.navbar-form').css('display') == 'block') {
+                    $('.navbar-nav').css('width', '100%');
+                } else {
+                    $('.navbar-nav').css('width', '80%');
+                }
+                
                 $('.navbar-form').toggle()
             });
             
