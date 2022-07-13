@@ -71,7 +71,7 @@ body {
     justify-content: flex-end;
     align-items: flex-end;
 }
-.navbar-nav:last-child {
+.navbar-nav>li:last-child {
     align-self: self-end;
     margin-left: auto;
 }
