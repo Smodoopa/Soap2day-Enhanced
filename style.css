@@ -57,10 +57,23 @@ body {
     left: 0;
     top: 0;
 }
+.navbar-nav>ul {
+    display: flex;
+    width: 100%;
+}
 .navbar-nav>li {
     float: left;
     border-radius: 6px;
     margin: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.navbar-nav>ul:last-child {
+    align-self: self-end;
+    margin-left: auto;
 }
 .navbar-default .navbar-nav>li>a {
     color: #ededed;
