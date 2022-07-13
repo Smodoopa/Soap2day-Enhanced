@@ -74,6 +74,13 @@ body {
 .navbar-nav>li:last-child {
     align-self: self-end;
     margin-left: auto;
+    cursor: pointer;
+    padding: 18px;
+    border-radius: 40px;
+    transition: background-color 1s;
+}
+.navbar-nav>li:last-child:hover {
+    background-color: #8080804a;
 }
 .navbar-default .navbar-nav>li>a {
     color: #ededed;
