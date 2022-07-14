@@ -29,6 +29,14 @@
 .player_theater {
     position: unset !important;
 }
+#btnTheater {
+    cursor: pointer;
+    color: #ffffff7a;
+    padding: 15px;
+}
+#btnTheater:hover {
+    color: #ffffff !important;
+}
 .myp1 {
     background-color: #00000000 !important;
 }

@@ -185,11 +185,24 @@
         if (window.location.href.includes("enter.html")) {
             document.getElementById('btnhome').click();
         } else {
+
+            jQuery.fn.insertAt = function(index, element) {
+                var lastIndex = this.children().size();
+                if (index < 0) {
+                  index = Math.max(0, lastIndex + 1 + index);
+                }
+                this.append(element);
+                if (index < lastIndex) {
+                  this.children().eq(index).before(this.children().last());
+                }
+                return this;
+              }
+
             $('body').prepend('<div class="queue-modal"><div class="queue-modal-content"><div class="queue-details"><div class="server-header"><h3 class="header-text">My Queue</h3><div class="close-btn">X</div></div><table class="queue-table"><tbody><tr class="queue-table-headers"><th>Order</th><th>Name</th></tr></tbody></table><div class="queue-button-panel"><div id="btnQueueClear" class="btn btn-primary">Clear Queue</div><div id="btnShuffleQueue" class="btn btn-primary">Shuffle</div></div></div></div></div>');
             
             $('.navbar-nav').prepend('<li><a href="/"><img src="https://soap2day.ac/pic/title.png" style="width: 89px;height: 20px;"></a></li>');
             $('#divPlayerSelect').append('<div id="btnAutoPlay" class="btn btn-primary">Auto-Play</div>');
-            $('#divPlayerSelect').append('<div id="btnTheater" class="btn btn-primary">Theater Mode</div>');
+            $(".jw-button-container").insertAt(12, '<div id="btnTheater">THEATER MODE</div>');
             $('#divPlayerSelect').append('<div id="btnFlip" class="btn btn-primary">Flip</div>');
             $('#divPlayerSelect').append('<div id="btnZachMode" class="btn btn-primary"><img src="https://i.imgur.com/bPmmuES.png"></div>');
             $('#divPlayerSelect').append('<span style="margin-left: 15px;font-weight: 900;">|</span>');
