@@ -26,6 +26,10 @@
     top: 0;
     z-index: 100;
 }
+.theatermode_body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
 .player_theater {
     position: unset !important;
 }

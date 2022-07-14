@@ -36,6 +36,7 @@
                 //$('#divTurnOff').click();
                 $('.jw-video').get(0).play();
                 listenForEndOfMedia;
+                initTheaterBTN();
                 console.log('[SOAPTV AutoPlay] Autoplay initiated.');
         }
 
@@ -134,6 +135,22 @@
             $('body').toggleClass('noscroll');
     }
 
+    const initTheaterBTN = () => {
+        $(".jw-button-container").insertAt(12, '<div id="btnTheater">THEATER MODE</div>');
+        $('#btnTheater').click(() => {
+            localStorage.setItem('theatermode', !JSON.parse(localStorage.getItem('autoplay')));
+            $('.panel-player').toggleClass("theatermode");
+            $('#player').toggleClass("player_theater");
+            $('body').toggleClass("theatermode_body");
+        });
+
+        if (JSON.parse(localStorage.getItem('theatermode'))) {
+            $('.panel-player').addClass("theatermode");
+            $('#player').addClass("player_theater");
+            $('body').addClass("theatermode_body");
+        }
+    }
+
     const listenForEndOfMedia = setInterval(() => {
         var elapsedSeconds, durationSeconds;
 
@@ -186,7 +203,7 @@
             document.getElementById('btnhome').click();
         } else {
 
-            jQuery.fn.insertAt = function(index, element) {
+            $.fn.insertAt = function(index, element) {
                 var lastIndex = this.children().size();
                 if (index < 0) {
                   index = Math.max(0, lastIndex + 1 + index);
@@ -202,7 +219,6 @@
             
             $('.navbar-nav').prepend('<li><a href="/"><img src="https://soap2day.ac/pic/title.png" style="width: 89px;height: 20px;"></a></li>');
             $('#divPlayerSelect').append('<div id="btnAutoPlay" class="btn btn-primary">Auto-Play</div>');
-            $(".jw-button-container").insertAt(12, '<div id="btnTheater">THEATER MODE</div>');
             $('#divPlayerSelect').append('<div id="btnFlip" class="btn btn-primary">Flip</div>');
             $('#divPlayerSelect').append('<div id="btnZachMode" class="btn btn-primary"><img src="https://i.imgur.com/bPmmuES.png"></div>');
             $('#divPlayerSelect').append('<span style="margin-left: 15px;font-weight: 900;">|</span>');
@@ -268,20 +284,10 @@
             });
 
             if (JSON.parse(localStorage.getItem('autoplay'))) $('#btnAutoPlay').addClass("autoPlayActive");
-            if (JSON.parse(localStorage.getItem('theatermode'))) {
-                $('.panel-player').addClass("theatermode");
-                $('#player').addClass("player_theater");
-            }
 
             $('#btnAutoPlay').click(() => {
                 localStorage.setItem('autoplay', !JSON.parse(localStorage.getItem('autoplay')));
                 $('#btnAutoPlay').toggleClass('autoPlayActive');
-            });
-
-            $('#btnTheater').click(() => {
-                localStorage.setItem('theatermode', !JSON.parse(localStorage.getItem('autoplay')));
-                $('.panel-player').toggleClass("theatermode");
-                $('#player').toggleClass("player_theater");
             });
 
             if (!localStorage.getItem('myQueue')) localStorage.setItem('myQueue', '[]');
