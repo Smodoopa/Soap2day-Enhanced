@@ -22,9 +22,11 @@
     GM_addStyle(my_css);
 
     if (!localStorage.getItem('autoplay')) localStorage.setItem('autoplay', 'false');
+    if (!localStorage.getItem('autoplay')) localStorage.setItem('theatermode', 'false');
 
     const waitForPlayer = setInterval(() => {
         var isAutoPlayOn = JSON.parse(localStorage.getItem('autoplay'));
+        
 
         if (!isAutoPlayOn) clearInterval(waitForPlayer);
 
@@ -183,12 +185,11 @@
         if (window.location.href.includes("enter.html")) {
             document.getElementById('btnhome').click();
         } else {
-            $('body').prepend('<div class="border-oriental"></div>');
-            $('body').prepend('<div class="flowers-gif"></div>');
             $('body').prepend('<div class="queue-modal"><div class="queue-modal-content"><div class="queue-details"><div class="server-header"><h3 class="header-text">My Queue</h3><div class="close-btn">X</div></div><table class="queue-table"><tbody><tr class="queue-table-headers"><th>Order</th><th>Name</th></tr></tbody></table><div class="queue-button-panel"><div id="btnQueueClear" class="btn btn-primary">Clear Queue</div><div id="btnShuffleQueue" class="btn btn-primary">Shuffle</div></div></div></div></div>');
             
             $('.navbar-nav').prepend('<li><a href="/"><img src="https://soap2day.ac/pic/title.png" style="width: 89px;height: 20px;"></a></li>');
             $('#divPlayerSelect').append('<div id="btnAutoPlay" class="btn btn-primary">Auto-Play</div>');
+            $('#divPlayerSelect').append('<div id="btnTheater" class="btn btn-primary">Theater Mode</div>');
             $('#divPlayerSelect').append('<div id="btnFlip" class="btn btn-primary">Flip</div>');
             $('#divPlayerSelect').append('<div id="btnZachMode" class="btn btn-primary"><img src="https://i.imgur.com/bPmmuES.png"></div>');
             $('#divPlayerSelect').append('<span style="margin-left: 15px;font-weight: 900;">|</span>');
@@ -205,7 +206,6 @@
                 } else {
                     $('.navbar-nav').css('width', '80%');
                 }
-                
                 $('.navbar-form').toggle()
             });
             
@@ -255,10 +255,20 @@
             });
 
             if (JSON.parse(localStorage.getItem('autoplay'))) $('#btnAutoPlay').addClass("autoPlayActive");
+            if (JSON.parse(localStorage.getItem('theatermode'))) {
+                $('.panel-player').addClass("theatermode");
+                $('#player').addClass("player_theater");
+            }
 
             $('#btnAutoPlay').click(() => {
                 localStorage.setItem('autoplay', !JSON.parse(localStorage.getItem('autoplay')));
                 $('#btnAutoPlay').toggleClass('autoPlayActive');
+            });
+
+            $('#btnTheater').click(() => {
+                localStorage.setItem('theatermode', !JSON.parse(localStorage.getItem('autoplay')));
+                $('.panel-player').toggleClass("theatermode");
+                $('#player').toggleClass("player_theater");
             });
 
             if (!localStorage.getItem('myQueue')) localStorage.setItem('myQueue', '[]');
