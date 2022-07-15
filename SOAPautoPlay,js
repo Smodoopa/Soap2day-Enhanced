@@ -138,7 +138,7 @@
     const initTheaterBTN = () => {
         $(".jw-button-container").insertAt(12, '<div id="btnTheater">THEATER MODE</div>');
         $('#btnTheater').click(() => {
-            localStorage.setItem('theatermode', !JSON.parse(localStorage.getItem('autoplay')));
+            localStorage.setItem('theatermode', !JSON.parse(localStorage.getItem('theatermode')));
             $('.panel-player').toggleClass("theatermode");
             $('#player').toggleClass("player_theater");
             $('body').toggleClass("theatermode_body");

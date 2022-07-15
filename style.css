@@ -105,7 +105,6 @@ body {
     align-items: flex-end;
 }
 .btnSearch {
-    align-self: self-end;
     margin-left: auto;
     cursor: pointer;
     padding: 18px;
