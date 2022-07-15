@@ -97,7 +97,6 @@ body {
 .navbar-nav>li {
     float: left;
     border-radius: 6px;
-    margin: 0px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
