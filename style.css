@@ -104,6 +104,9 @@ body {
     justify-content: flex-end;
     align-items: flex-end;
 }
+.navbar-nav>li:last-child {
+    margin-left: auto !important;
+}
 .btnSearch {
     margin-left: auto;
     cursor: pointer;
