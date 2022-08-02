@@ -48,7 +48,7 @@
     border-bottom: 1px #ffffff00 solid;
     line-height: 0px;
     margin-top: 8px;
-    transition: background-color 0.5;
+    transition: background-color 0.5s;
 }
 .myp1:hover {
     background-color: #1e1e1e !important;
