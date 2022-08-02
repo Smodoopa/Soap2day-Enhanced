@@ -283,6 +283,12 @@
                 addAllEpisodesToQueue();
             });
 
+            // Search Button
+            //$('.form-control').eq(0).attr('id', 'search-boxx');
+            $('.btnSearch').click(() => {
+                document.getElementById("search-boxx").focus();
+            });
+
             if (JSON.parse(localStorage.getItem('autoplay'))) $('#btnAutoPlay').addClass("autoPlayActive");
 
             $('#btnAutoPlay').click(() => {
