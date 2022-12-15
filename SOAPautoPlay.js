@@ -237,6 +237,8 @@
                 }
                 $('.navbar-form').toggle()
             });
+
+            $('body > div:nth-child(9)').addClass('tricks');
             
             $('#btnFlip').click(() => {
                 $('.content').toggleClass('flipped');
