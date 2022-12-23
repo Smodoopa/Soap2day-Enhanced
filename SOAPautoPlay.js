@@ -42,12 +42,25 @@
 
     }, 1000);
 
+
+    // ------------------------------------------------------
+    // ------------------------------------------------------
+    // ------------------------------------------------------
+
     const addToQueue = () => {
         var myQueue = JSON.parse(localStorage.getItem('myQueue'));
 
         myQueue.push([$('#t1').text(), window.location.href]);
 
         localStorage.setItem("myQueue", JSON.stringify(myQueue));
+    }
+
+    const addQueueBtnSearch = () => {
+        var searchResults = $('.thumbnail div:nth-child(2) > h5').toArray();
+
+        searchResults.forEach(item => {
+            $(item).append('<button class="searchAddQueueBtn">+</button>');
+        });
     }
 
     const addAllEpisodesToQueue = () => {
@@ -197,11 +210,19 @@
         loadQueueModal();
     }
 
+    // ------------------------------------------------------
+    // ------------------------------------------------------
+    // ------------------------------------------------------
+
     setTimeout(() => {
         // Bypasses Idle check.
         if (window.location.href.includes("enter.html")) {
             document.getElementById('btnhome').click();
-        } else {
+        } 
+        else if (window.location.href.includes("/search/keyword/")) {
+            addQueueBtnSearch();
+        }
+        else {
 
             $.fn.insertAt = function(index, element) {
                 var lastIndex = this.children().size();
@@ -287,7 +308,9 @@
 
             // Search Button
             //$('.form-control').eq(0).attr('id', 'search-boxx');
-            $('.btnSearch').click(() => {
+            $
+            
+            ('.btnSearch').click(() => {
                 document.getElementById("search-boxx").focus();
             });
 

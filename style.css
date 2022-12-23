@@ -16,6 +16,11 @@
     background-color: red !important;
     z-index: 0 !important;
 }
+.searchAddQueueBtn {
+    background-color: #303eaa;
+    border: 1px black solid;
+    margin-left: 5px;
+}
 .form-control {
     color: #fff;
     border: none;
