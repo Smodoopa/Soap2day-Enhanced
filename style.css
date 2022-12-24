@@ -131,13 +131,13 @@ body {
 .nav-right {
     margin-left: auto !important;
 }
-.nav-right li {
+.nav-right i {
     cursor: pointer;
     padding: 18px;
     border-radius: 40px;
     transition: background-color 0.4s;
 }
-.nav-right li:hover {
+.nav-right i:hover {
     background-color: #8080804a;
 }
 .navbar-default .navbar-nav>li>a {
