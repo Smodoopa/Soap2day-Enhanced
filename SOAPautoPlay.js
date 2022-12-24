@@ -48,8 +48,8 @@
     const upgradeNav = () => {
         $('.navbar-nav').prepend('<li><a href="/"><img src="https://soap2day.ac/pic/title.png" style="width: 89px;height: 20px;"></a></li>');
 
-        var queueDropDown = '<i class="fa fa-align-justify" aria-hidden="true"></i>',
-            siteSearch = '<i class="fa fa-search"></i>';
+        var queueDropDown = '<i class="btnQueueDrop fa fa-align-justify" aria-hidden="true"></i>',
+            siteSearch = '<i class="btnSearch fa fa-search"></i>';
 
         $('.navbar-nav').append(`<li class="nav-right">${queueDropDown}${siteSearch}</li>`);
 
