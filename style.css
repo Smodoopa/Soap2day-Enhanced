@@ -330,7 +330,6 @@ body > div.content > div > div > div:nth-child(3) > div > div > h6 > span {
     align-content: center;
     width: 37em;
     align-items: center;
-    border: 1px solid #ffffff38;
 }
 .server-header {
     text-align: center;
@@ -360,7 +359,6 @@ body > div.content > div > div > div:nth-child(3) > div > div > h6 > span {
     display: flex;
     flex-direction: column;
     width: 100%;
-    background: #050505;
     align-content: space-between;
 }
 .queue-table {
@@ -431,6 +429,8 @@ th:first-child {
     justify-content: center;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
+    border-top: 1px black;
+    margin-top: 1px;
 }
 .label.label-info {
     background-color: #000000 !important;
