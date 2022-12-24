@@ -9,17 +9,13 @@
 .panel-info {
     border-color: #000000;
 }
-.tricks {
-    display: none !important;
-    width: 0px !important;
-    height: 0px !important;
-    background-color: red !important;
-    z-index: 0 !important;
-}
 .searchAddQueueBtn {
     background-color: #303eaa;
     border: 1px black solid;
     margin-left: 5px;
+}
+h5 {
+    font-size: 13px !important;
 }
 .form-control {
     color: #fff;
@@ -132,8 +128,16 @@ body {
 .navbar-nav>li:last-child {
     margin-left: auto !important;
 }
-.btnSearch {
+.nav-right {
     margin-left: auto !important;
+}
+.btnQueueDrop {
+    cursor: pointer;
+    padding: 18px;
+    border-radius: 40px;
+    transition: background-color 0.4s;
+}
+.btnSearch {
     cursor: pointer;
     padding: 18px;
     border-radius: 40px;
