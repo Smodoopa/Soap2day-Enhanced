@@ -313,7 +313,7 @@ body > div.content > div > div > div:nth-child(3) > div > div > h6 > span {
     top: 0px;
     position: fixed;
     height: 100%;
-    background-color: #000000ab;
+    background-color: #000000f0;
     z-index: 1;
     display: none;
     align-content: center;
@@ -342,6 +342,8 @@ body > div.content > div > div > div:nth-child(3) > div > div > h6 > span {
     align-items: center;
     justify-content: flex-start;
     background-color: #121212;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
 }
 .header-text {
     flex: 1 1 auto;
@@ -427,6 +429,8 @@ th:first-child {
     align-content: center;
     align-items: center;
     justify-content: center;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 .label.label-info {
     background-color: #000000 !important;
