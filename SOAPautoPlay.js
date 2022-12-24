@@ -195,13 +195,11 @@
         });
 
         $('.queue-modal').css('display', 'flex');
-        $('.content').toggleClass('blurred');
         $('body').toggleClass('noscroll');
     }
 
     const closeQueueModal = () => {
         $('.queue-modal').hide();
-        $('.content').toggleClass('blurred');
         $('.queue-table').html('<tbody><tr class="queue-table-headers"><th>Order</th><th>Name</th></tr></tbody>');
         $('body').toggleClass('noscroll');
     }

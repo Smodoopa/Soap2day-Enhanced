@@ -13,6 +13,8 @@
     background-color: #303eaa;
     border: 1px black solid;
     margin-left: 5px;
+    border-radius: 15px;
+    line-height: 17px;
 }
 h5 {
     font-size: 13px !important;
@@ -135,6 +137,7 @@ body {
     cursor: pointer;
     padding: 18px;
     border-radius: 40px;
+    margin-left: 7px;
     transition: background-color 0.4s;
 }
 .nav-right i:hover {
@@ -446,14 +449,14 @@ th:first-child {
 }
 #btnQueueUp {
     margin-left: 6px;
-    background-color: #ffffff;
+    background-color: #585858;
 }
 #btnQueueDown {
     margin-left: auto;
-    background-color: #ffffff;
+    background-color: #585858;
 }
 #btnQueueDelete {
-    background-color: #a73939;
+    background-color: #e33e3e;
     margin-left: 6px;
     display: flex;
     flex-direction: row;
