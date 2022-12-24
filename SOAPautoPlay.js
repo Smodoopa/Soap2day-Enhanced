@@ -53,7 +53,27 @@
 
         $('.navbar-nav').append(`<li class="nav-right">${queueDropDown}${siteSearch}</li>`);
 
-        $('.btnSearch').click(() => {
+        // Queue Modal
+        if (!localStorage.getItem('myQueue')) localStorage.setItem('myQueue', '[]');
+
+        $('body').prepend('<div class="queue-modal"><div class="queue-modal-content"><div class="queue-details"><div class="server-header"><h3 class="header-text">My Queue</h3><div class="close-btn">X</div></div><table class="queue-table"><tbody><tr class="queue-table-headers"><th>Order</th><th>Name</th></tr></tbody></table><div class="queue-button-panel"><div id="btnQueueClear" class="btn btn-primary">Clear Queue</div><div id="btnShuffleQueue" class="btn btn-primary">Shuffle</div></div></div></div></div>');
+
+        $('.close-btn').click(() => {
+            closeQueueModal();
+        });
+
+        $('#btnQueueClear').click(() => {
+            localStorage.setItem('myQueue', '[]');
+            closeQueueModal();
+            loadQueueModal();
+        });
+
+        $('#btnShuffleQueue').click(() => {
+            shuffleQueue();
+        });
+
+        // Search Nav Button
+        $('.fa-search').click(() => {
             if ($('.navbar-form').css('display') == 'block') {
                 $('.navbar-nav').css('width', '100%');
             } else {
@@ -61,6 +81,8 @@
             }
             $('.navbar-form').toggle()
         });
+
+        $('.fa-align-justify').click(() => loadQueueModal());
 
         $(window).scroll(() => {
             if ($(window).scrollTop() == 0) {
@@ -247,18 +269,13 @@
             return this;
         }
 
-        $('body').prepend('<div class="queue-modal"><div class="queue-modal-content"><div class="queue-details"><div class="server-header"><h3 class="header-text">My Queue</h3><div class="close-btn">X</div></div><table class="queue-table"><tbody><tr class="queue-table-headers"><th>Order</th><th>Name</th></tr></tbody></table><div class="queue-button-panel"><div id="btnQueueClear" class="btn btn-primary">Clear Queue</div><div id="btnShuffleQueue" class="btn btn-primary">Shuffle</div></div></div></div></div>');
-
         $('#divPlayerSelect').append('<div id="btnAutoPlay" class="btn btn-primary">Auto-Play</div>');
         $('#divPlayerSelect').append('<div id="btnFlip" class="btn btn-primary">Flip</div>');
         $('#divPlayerSelect').append('<div id="btnZachMode" class="btn btn-primary"><img src="https://i.imgur.com/bPmmuES.png"></div>');
         $('#divPlayerSelect').append('<span style="margin-left: 15px;font-weight: 900;">|</span>');
-        $('#divPlayerSelect').append('<div id="btnQueue" class="btn btn-primary">My Queue</div>');
         $('#divPlayerSelect').append('<div id="btnQueueAdd" class="btn btn-primary">+</div>');
         $('#divPlayerSelect').append('<span style="margin-left: 15px;font-weight: 900;">|</span>');
         $('#divPlayerSelect').append('<div id="btnAddAllEpisodes" class="btn btn-primary">Add All Episodes</div>');
-
-        $('body > div:nth-child(9)').addClass('tricks');
 
         $('#btnFlip').click(() => {
             $('.content').toggleClass('flipped');
@@ -273,30 +290,8 @@
             addToQueue($('#t1').text(), window.location.href);
         });
 
-        $('#btnQueue').click(() => {
-            loadQueueModal();
-        });
-
-        $('.close-btn').click(() => {
-            closeQueueModal();
-        });
-
-        $('#btnQueueClear').click(() => {
-            localStorage.setItem('myQueue', '[]');
-            closeQueueModal();
-            loadQueueModal();
-        });
-
-        $('#btnShuffleQueue').click(() => {
-            shuffleQueue();
-        });
-
         $('#btnAddAllEpisodes').click(() => {
             addAllEpisodesToQueue();
-        });
-
-        $('.btnSearch').click(() => {
-            document.getElementById("search-boxx").focus();
         });
 
         if (JSON.parse(localStorage.getItem('autoplay'))) $('#btnAutoPlay').addClass("autoPlayActive");
@@ -305,8 +300,6 @@
             localStorage.setItem('autoplay', !JSON.parse(localStorage.getItem('autoplay')));
             $('#btnAutoPlay').toggleClass('autoPlayActive');
         });
-
-        if (!localStorage.getItem('myQueue')) localStorage.setItem('myQueue', '[]');
 
         if (JSON.parse(localStorage.getItem('autoplay'))) waitForPlayer;
     }
