@@ -247,6 +247,8 @@
             }
         });
 
+        $('.quickAddSubmit').click(() => $('.quickAddInput').submit());
+
         $('.close-btn').click(() => {
             closeQueueModal();
         });
