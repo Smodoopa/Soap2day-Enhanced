@@ -295,6 +295,15 @@ body > div > div:nth-child(1) > h3 {
 #btnShuffleQueue:hover {
     background-color: purple;
 }
+.quickAddInput {
+    margin-left: 10px;
+    background-color: #343434;
+    border: none;
+    height: 25px;
+    border-radius: 5px;
+    width: 200px;
+}
+
 .autoPlayActive {
     background-color: #ff791a !important;
 }

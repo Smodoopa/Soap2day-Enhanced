@@ -56,7 +56,18 @@
         // Queue Modal
         if (!localStorage.getItem('myQueue')) localStorage.setItem('myQueue', '[]');
 
-        $('body').prepend('<div class="queue-modal"><div class="queue-modal-content"><div class="queue-details"><div class="server-header"><h3 class="header-text">My Queue</h3><div class="close-btn">X</div></div><table class="queue-table"><tbody><tr class="queue-table-headers"><th>Order</th><th>Name</th></tr></tbody></table><div class="queue-button-panel"><div id="btnQueueClear" class="btn btn-primary"><i class="fa fa-trash" aria-hidden="true"></i></div><div id="btnShuffleQueue" class="btn btn-primary"><i class="fa fa-random" aria-hidden="true"></i></div></div></div></div></div>');
+        $('body').prepend('<div class="queue-modal"><div class="queue-modal-content"><div class="queue-details"><div class="server-header"><h3 class="header-text">My Queue</h3><div class="close-btn">X</div></div><table class="queue-table"><tbody><tr class="queue-table-headers"><th>Order</th><th>Name</th></tr></tbody></table><div class="queue-button-panel"><div id="btnQueueClear" class="btn btn-primary"><i class="fa fa-trash" aria-hidden="true"></i></div><div id="btnShuffleQueue" class="btn btn-primary"><i class="fa fa-random" aria-hidden="true"></i></div><input class="quickAddInput" placeholder="Quick Add"></div></div></div></div>');
+
+        $('.quickAddInput').submit(e => {
+            quickQueueSearch($('.quickAddInput').val());
+        });
+
+        $('.quickAddInput').keypress(function (e) { // On enter.
+            if (e.which == 13) {
+                $('.quickAddInput').submit();
+                return false;
+            }
+        });
 
         $('.close-btn').click(() => {
             closeQueueModal();
@@ -177,6 +188,26 @@
             closeQueueModal();
             loadQueueModal();
         });
+
+        const quickQueueSearch = (searchQuery) => {
+            fetch(`https://soap2day.ac/search/keyword/${searchQuery}`)
+                .then(function (response) {
+                    return response.text()
+                })
+                .then(function (html) {
+                    var parser = new DOMParser();
+
+                    var doc = parser.parseFromString(html, "text/html");
+
+                    var quickSearchResult = $(doc).find('.thumbnail div:nth-child(2) > h5 > a').toArray()[0];
+
+                    if (quickSearchResult !== null) addToQueue(quickSearchResult.text, quickSearchResult.href);
+
+                })
+                .catch(function (err) {
+                    console.log('Failed to fetch page: ', err);
+                });
+        }
 
         $('.queueTableRowData > #btnQueueDown').click(e => {
             var myQueue = JSON.parse(localStorage.getItem('myQueue')),
