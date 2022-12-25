@@ -300,10 +300,17 @@ body > div > div:nth-child(1) > h3 {
     background-color: #343434;
     border: none;
     height: 25px;
-    border-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
     width: 200px;
 }
-
+.quickAddSubmit {
+    margin-left: 0px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    height: 28px;
+    background-color: #565656;
+}
 .autoPlayActive {
     background-color: #ff791a !important;
 }
