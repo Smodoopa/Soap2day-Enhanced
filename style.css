@@ -296,7 +296,7 @@ body > div > div:nth-child(1) > h3 {
     background-color: purple;
 }
 .pageNotification {
-    position: absolute;
+    position: fixed;
     bottom: 50px;
     right: 50px;
     background-color: #181818;

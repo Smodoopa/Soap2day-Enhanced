@@ -51,7 +51,7 @@
         myQueue.push([text, url]);
 
         localStorage.setItem("myQueue", JSON.stringify(myQueue));
-        triggerNoticiation(`${text} successfully added to our queue!`);
+        triggerNoticiation(`${text} successfully added to your queue!`);
     }
 
     const addQueueBtnSearch = () => {
@@ -232,6 +232,8 @@
 
         localStorage.setItem("myQueue", JSON.stringify(queue));
 
+        triggerNoticiation(`Queue shuffled!`);
+
         closeQueueModal();
         loadQueueModal();
     }
@@ -270,6 +272,7 @@
 
         $('#btnQueueClear').click(() => {
             localStorage.setItem('myQueue', '[]');
+            triggerNoticiation('Queue cleared!');
             closeQueueModal();
             loadQueueModal();
         });
