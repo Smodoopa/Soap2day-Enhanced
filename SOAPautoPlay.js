@@ -51,6 +51,7 @@
         myQueue.push([text, url]);
 
         localStorage.setItem("myQueue", JSON.stringify(myQueue));
+        triggerNoticiation(text);
     }
 
     const addQueueBtnSearch = () => {
@@ -87,6 +88,20 @@
         });
 
         localStorage.setItem("myQueue", JSON.stringify(myQueue));
+    }
+
+    const triggerNoticiation = (notifMessage) => {
+        var notifId = `notif${Math.floor(Math.random() * 5000)}`
+        $('body').prepend(`<div id=${notifId} class="pageNotification"></div>`);
+        var notificationClass = '.pageNotification';
+        $(notificationClass).text(notifMessage);
+        $(notificationClass).css('opacity', 1);
+        setTimeout(() => {
+            $(notificationClass).css('opacity', 0); 
+        }, 2000);
+        setTimeout(() => {
+            $(`#${notifId}`).remove();
+        }, 3000);
     }
 
     const loadQueueModal = () => {
