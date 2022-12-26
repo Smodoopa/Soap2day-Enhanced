@@ -303,6 +303,7 @@ body > div > div:nth-child(1) > h3 {
     color: white;
     width: 250px;
     height: 72px;
+    padding: 5px;
     margin: auto;
     border: 1px #000000c9 solid;
     z-index: 100;
