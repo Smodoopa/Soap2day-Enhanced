@@ -51,7 +51,7 @@
         myQueue.push([text, url]);
 
         localStorage.setItem("myQueue", JSON.stringify(myQueue));
-        triggerNoticiation(text);
+        triggerNoticiation(`${text} successfully added to our queue!`);
     }
 
     const addQueueBtnSearch = () => {
