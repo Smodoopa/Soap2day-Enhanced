@@ -126,6 +126,8 @@ body {
     flex-wrap: nowrap;
     justify-content: flex-end;
     align-items: flex-end;
+    background-color: #5c5b5b47;
+    font-size: 11px;
 }
 .navbar-nav>li:last-child {
     margin-left: auto !important;
@@ -217,8 +219,12 @@ body > div > div:nth-child(1) > div > div > nav > div.collapse.navbar-collapse.n
 .dropdown-menu {
     background-color: #090909;
 }
+.dropdown-menu>li {
+    background-color: #5c5b5b47;
+}
 .dropdown-menu>li>a {
     color: #fff;
+    font-size: 12px;
 }
 body > div > div:nth-child(1) > h3 {
     display: none;
@@ -294,6 +300,9 @@ body > div > div:nth-child(1) > h3 {
 }
 #btnShuffleQueue:hover {
     background-color: purple;
+}
+.navbar-nav li a {
+    color: white !important;
 }
 .pageNotification {
     position: fixed;
