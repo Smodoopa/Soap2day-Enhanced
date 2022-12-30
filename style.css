@@ -126,8 +126,10 @@ body {
     flex-wrap: nowrap;
     justify-content: flex-end;
     align-items: flex-end;
-    background-color: #5c5b5b47;
     font-size: 11px;
+}
+.navbar-nav>li:hover {
+    background-color: #5c5b5b47;
 }
 .navbar-nav>li:last-child {
     margin-left: auto !important;
@@ -219,7 +221,7 @@ body > div > div:nth-child(1) > div > div > nav > div.collapse.navbar-collapse.n
 .dropdown-menu {
     background-color: #090909;
 }
-.dropdown-menu>li {
+.dropdown-menu>li:hover {
     background-color: #5c5b5b47;
 }
 .dropdown-menu>li>a {
