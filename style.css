@@ -117,6 +117,10 @@ body {
 .navbar-nav {
     display: flex;
     width: 100%;
+
+}
+.panel-body {
+    padding: 0px !important;
 }
 .navbar-nav>li {
     float: left;
@@ -128,7 +132,7 @@ body {
     align-items: flex-end;
     font-size: 11px;
 }
-.navbar-nav>li:hover {
+.navbar-nav>li:not(:last-child):hover {
     background-color: #5c5b5b47;
 }
 .navbar-nav>li:last-child {
