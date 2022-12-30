@@ -119,7 +119,7 @@ body {
     width: 100%;
 
 }
-.panel-body {
+.panel-info > .panel-body {
     padding: 0px !important;
 }
 .navbar-nav>li {
