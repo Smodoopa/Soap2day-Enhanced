@@ -264,7 +264,7 @@ body > div > div:nth-child(1) > h3 {
 }
 .pagination>.active>span {
     background-color: #005aff;
-    border-color: #ffffff;
+    border-color: none;
     color: #fff;
 }
 .jw-slider-time {
