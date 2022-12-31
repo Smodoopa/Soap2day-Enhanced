@@ -270,6 +270,9 @@ body > div > div:nth-child(1) > h3 {
     border-color: none !important;
     color: #fff;
 }
+.pagination>.disabled>span {
+    border-color: none !important;
+}
 .jw-slider-time {
     align-items: start;
 }
