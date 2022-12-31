@@ -69,13 +69,13 @@ a {
     text-decoration: none;
 }
 .panel {
-    background-color: #131313;
+    background-color: #00000000;
     border: none;
     border-radius: 10px;
 }
 body {
     color: white;
-    background: #2e2e2e !important;
+    background: #0c0c0c !important;
 }
 .flipped {
     transform: rotate(180deg);
@@ -83,8 +83,19 @@ body {
 .zachMode {
     filter: grayscale(1);
 }
+
+/* Movie/TV List Sort Panel */
+
+.col-sm-12 .container {
+    border-bottom: 1px solid #eeeeee00 !important;
+}
+.col-sm-12 .container h5 {
+    padding: 10px;
+}
+/* ------------------------ */
+
 .thumbnail {
-    background-color: #131313;
+    background-color: #13131300;
 }
 .alert-info-ex {
     background-color: #000000;
@@ -189,11 +200,13 @@ body {
     background-color: #223c81 !important;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
-    border-color: #000000;
+    border-color: #a7575700 !important;
+    font-size: 2em;
+    padding-bottom: 25px;
 }
 .alert-info {
     color: #ffffff;
-    background-color: #101010;
+    background-color: #080808;
     border-color: #00000000;
 }
 .text-default {
@@ -466,6 +479,9 @@ th:first-child {
 }
 .noscroll {
     overflow: hidden;
+}
+.no-padding {
+    padding: 10px;
 }
 #btnQueueClear:hover {
     background-color: #762824;
