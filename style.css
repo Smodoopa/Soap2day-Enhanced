@@ -9,6 +9,9 @@
 .panel-info {
     border-color: #000000;
 }
+.panel .panel-info .panel-default {
+    display: none;
+}
 .searchAddQueueBtn {
     background-color: #303eaa;
     border: 1px black solid;
