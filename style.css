@@ -3,7 +3,7 @@
     transition: transform 0.5s, filter 0.5s;
     margin-top: 70px !important;
 }
-.container {
+.content > div:nth-child(3) {
     padding-right: 5vw;
     padding-left: 5vw;
 }
