@@ -9,7 +9,7 @@
 .panel-info {
     border-color: #000000;
 }
-.panel .panel-info .panel-default {
+.panel > .panel-info > .panel-default {
     display: none;
 }
 .searchAddQueueBtn {
