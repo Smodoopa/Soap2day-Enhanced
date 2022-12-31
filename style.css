@@ -9,7 +9,7 @@
 .panel-info {
     border-color: #000000;
 }
-.panel > .panel-info > .panel-default {
+div.col-sm-8.col-lg-8.col-xs-12 > div:nth-child(1) {
     display: none;
 }
 .searchAddQueueBtn {
