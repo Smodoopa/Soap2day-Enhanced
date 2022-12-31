@@ -256,7 +256,7 @@ body > div > div:nth-child(1) > h3 {
 .pagination>li>a {
     background-color: #000;
     color: #ffffff;
-    border: none;
+    border: none !important;
 }
 .pagination>.disabled>span {
     background-color: #000;
@@ -264,6 +264,12 @@ body > div > div:nth-child(1) > h3 {
 }
 .pagination>li>span {
     border-color: none !important;
+}
+.pagination>li:first-child>span {
+    border: none !important;
+}
+.pagination>.disabled>span {
+    border: none !important;    
 }
 .pagination>.active>span {
     background-color: #005aff;
