@@ -263,11 +263,11 @@ body > div > div:nth-child(1) > h3 {
     color: #fff;
 }
 .pagination>li>span {
-    border-color: none;
+    border-color: none !important;
 }
 .pagination>.active>span {
     background-color: #005aff;
-    border-color: none;
+    border-color: none !important;
     color: #fff;
 }
 .jw-slider-time {
