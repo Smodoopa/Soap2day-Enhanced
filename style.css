@@ -3,6 +3,10 @@
     transition: transform 0.5s, filter 0.5s;
     margin-top: 70px !important;
 }
+.container {
+    padding-right: 5vw;
+    padding-left: 5vw;
+}
 .col-sm-8 {
     width: 100%;
 }
