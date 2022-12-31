@@ -256,6 +256,7 @@ body > div > div:nth-child(1) > h3 {
 .pagination>li>a {
     background-color: #000;
     color: #ffffff;
+    border: none;
 }
 .pagination>.disabled>span {
     background-color: #000;
