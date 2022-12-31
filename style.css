@@ -88,6 +88,8 @@ body {
 
 .col-sm-12 .container {
     border-bottom: 1px solid #eeeeee00 !important;
+    background-color: #080808;
+    border-radius: 4px;
 }
 .col-sm-12 .container h5 {
     padding: 10px;
@@ -197,7 +199,7 @@ body {
 }
 .panel-info > .panel-heading {
     color: #ffffff;
-    background-color: #223c81 !important;
+    background-color: #b9b9b900 !important;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
     border-color: #a7575700 !important;
