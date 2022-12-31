@@ -17,11 +17,13 @@ div.col-sm-8.col-lg-8.col-xs-12 > div:nth-child(1) {
     display: none;
 }
 .searchAddQueueBtn {
-    background-color: #303eaa;
-    border: 1px black solid;
+    background-color: #b7b7b733;
     margin-left: 5px;
-    border-radius: 15px;
+    border-radius: 5px;
     line-height: 17px;
+}
+.searchAddQueueBtn:hover {
+    background-color: #b7b7b766;
 }
 h5 {
     font-size: 13px !important;
