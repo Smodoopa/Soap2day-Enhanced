@@ -103,9 +103,9 @@ body {
     background-color: #13131300;
 }
 .alert-info-ex {
-    background-color: #000000;
+    background-color: #0c0c0c;
     color: #ffffff;
-    border-color: #000000;
+    border-color: #ffffff00;
 }
 .col-lg-4 {
     width: 100%;
