@@ -262,6 +262,9 @@ body > div > div:nth-child(1) > h3 {
     background-color: #000;
     color: #fff;
 }
+.pagination>li>span {
+    border-color: none;
+}
 .pagination>.active>span {
     background-color: #005aff;
     border-color: none;
