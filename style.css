@@ -13,9 +13,11 @@
 .panel-info {
     border-color: #000000;
 }
+/*
 div.col-sm-8.col-lg-8.col-xs-12 > div:nth-child(1) {
     display: none;
 }
+*/
 .searchAddQueueBtn {
     background-color: #b7b7b733;
     margin-left: 5px;
