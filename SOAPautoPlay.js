@@ -83,7 +83,7 @@
     }
 
     const addQueueBtnSearch = () => {
-        var searchResults = $('.thumbnail div:nth-child(2) > h5').toArray();
+        var searchResults = $('.thumbnail div:nth-child(3) > h5').toArray();
 
         searchResults.forEach(item => {
             let searchTitle = $(item).eq(0).find('a').eq(0).text(),
@@ -273,7 +273,7 @@
     }
 
     const initSearchThumbOverlay = () => {
-        let thumbOverlay = '<div class="thumb-overlay"><i class="fa fa-plus" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>';
+        let thumbOverlay = '<div class="thumb-overlay"><i class="thumbAdd fa fa-plus" aria-hidden="true"></i><i class="thumbFav fa fa-star" aria-hidden="true"></i><i class="thumbPlay fa fa-play-circle-o" aria-hidden="true"></i></div>';
         $('.thumbnail').prepend(thumbOverlay);
     }
 

@@ -447,7 +447,7 @@ body > div.content > div > div > div:nth-child(3) > div > div > h6 > span {
 .thumb-overlay {
     width: 100%;
     height: 100%;
-    background-color: #80808036;
+    background-color: #80808094;
     z-index: 60;
     position: absolute;
     display: flex;
@@ -457,14 +457,13 @@ body > div.content > div > div > div:nth-child(3) > div > div > h6 > span {
     left: 0;
     top: 0;
     display: none;
-    cursor: pointer;
     align-content: center;
     justify-content: center;
     align-items: center;
-    flex-direction: row;
 }
 .thumb-overlay i {
     font-size: 3em;
+    cursor: pointer;
     padding: 10px;
 }
 .close-btn {
