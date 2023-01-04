@@ -526,7 +526,6 @@ th:first-child {
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
     border-top: 1px black;
-    margin-top: 1px;
 }
 .label.label-info {
     background-color: #000000 !important;
