@@ -41,8 +41,36 @@
 
     }, 1000);
 
+
     // ------------------------------------------------------
-    // ---------------------Queue Management------------------
+    // ---------------------Favorites------------------------
+    // ------------------------------------------------------
+
+    const addToFavorites = (text, url) => {
+        var myFavorites = JSON.parse(localStorage.getItem('myFavorites'));
+
+        myFavorites.push([text, url]);
+
+        localStorage.setItem("myFavorites", JSON.stringify(myFavorites));
+        triggerNoticiation(`${text} successfully added to your favorites!`);
+    }
+
+    const loadFavoritesList = () => {
+        var myFavorites = JSON.parse(localStorage.getItem('myFavorites'));
+
+        unloadQueueItems();
+
+        myFavorites.forEach((item, index) => {
+            if (index == 0) {
+                $('.queue-table tr:last').after(`<tr style="background: #a3a3a340;"><td>${index + 1}</td><td class="queueTableRowData"><a href="${item[1]}">${item[0]}</a><div class="upNextLabel">Up Next</div><div id="btnQueueDown" class="btnQueueTable"><img src="${down_img}" /></div><div id="btnQueueUp" class="btnQueueTable"><img src="${up_img}" /></div><div id="btnQueueDelete" class="btnQueueTable"><img src="${x_img}" /></div></td></tr>`);
+            } else {
+                $('.queue-table tr:last').after(`<tr><td>${index + 1}</td><td class="queueTableRowData"><a href="${item[1]}">${item[0]}</a><div id="btnQueueDown" class="btnQueueTable"><img src="${down_img}" /></div><div id="btnQueueUp" class="btnQueueTable"><img src="${up_img}" /></div><div id="btnQueueDelete" class="btnQueueTable"><img src="${x_img}" /></div></td></tr>`);
+            }
+        });
+    }
+
+    // ------------------------------------------------------
+    // ---------------------Queue Management-----------------
     // ------------------------------------------------------
 
     const addToQueue = (text, url) => {
@@ -115,6 +143,8 @@
             }
         });
 
+        $('#btnFav').click(e => { loadFavoritesList() });
+
         $('.queueTableRowData > #btnQueueDelete').click(e => {
             var myQueue = JSON.parse(localStorage.getItem('myQueue'));
             myQueue.splice($(e.target.parentElement.parentElement).index() - 1, 1);
@@ -157,6 +187,10 @@
 
         $('.queue-modal').css('display', 'flex');
         $('body').toggleClass('noscroll');
+    }
+
+    const unloadQueueItems = () => {
+        $('.queue-table tbody tr:not(:first)').remove();
     }
 
     const closeQueueModal = () => {
@@ -238,6 +272,13 @@
         loadQueueModal();
     }
 
+    const initSearchThumbOverlay = () => {
+        let thumbOverlay = '<div class="thumb-overlay"><i class="fa fa-plus" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>';
+        $('.thumbnail').each(() => {
+            $(this).prepend(thumbOverlay);
+        });
+    }
+
     // ------------------------------------------------------
     // ---------------------Nav Bar--------------------------
     // ------------------------------------------------------
@@ -250,8 +291,11 @@
 
         $('.navbar-nav').append(`<li class="nav-right">${queueDropDown}${siteSearch}</li>`);
 
-        // Queue Modal
+        // Init Queue List
         if (!localStorage.getItem('myQueue')) localStorage.setItem('myQueue', '[]');
+
+        // Init Favorites List
+        if (!localStorage.getItem('myFavorites')) localStorage.setItem('myFavorites', '[]');
 
         $('body').prepend('<div class="queue-modal"><div class="queue-modal-content"><div class="queue-details"><div class="server-header"><h3 class="header-text">My Queue</h3><div class="close-btn"><i class="fa fa-times" aria-hidden="true"></i></div></div><table class="queue-table"><tbody><tr class="queue-table-headers"><th>Order</th><th>Name</th></tr></tbody></table><div class="queue-button-panel"><div id="btnFav" class="btn btn-primary"><i class="fa fa-star" aria-hidden="true"></i></div><div id="btnQueueClear" class="btn btn-primary"><i class="fa fa-trash" aria-hidden="true"></i></div><div id="btnShuffleQueue" class="btn btn-primary"><i class="fa fa-random" aria-hidden="true"></i></div><input class="quickAddInput" placeholder="Quick Add"><div class="btn btn-primary quickAddSubmit"><i class="fa fa-search" aria-hidden="true"></i></div></div></div></div></div>');
 
@@ -367,6 +411,7 @@
         }
         else if (window.location.href.includes("/search/keyword/") || window.location.href.includes("/movielist/")) {
             upgradeNav();
+            initSearchThumbOverlay();
             addQueueBtnSearch();
         }
         else {
