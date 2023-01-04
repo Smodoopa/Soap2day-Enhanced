@@ -457,6 +457,11 @@ body > div.content > div > div > div:nth-child(3) > div > div > h6 > span {
     left: 0;
     top: 0;
     display: none;
+    cursor: pointer;
+}
+.thumb-overlay i {
+    font-size: 3em;
+    padding: 10px;
 }
 .close-btn {
     padding: 20px;

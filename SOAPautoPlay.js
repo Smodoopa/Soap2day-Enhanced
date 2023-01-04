@@ -273,7 +273,7 @@
     }
 
     const initSearchThumbOverlay = () => {
-        let thumbOverlay = '<div class="thumb-overlay"><i class="fa fa-plus" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></div>';
+        let thumbOverlay = '<div class="thumb-overlay"><i class="fa fa-plus" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>';
         $('.thumbnail').prepend(thumbOverlay);
     }
 
