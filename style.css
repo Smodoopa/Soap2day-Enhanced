@@ -442,7 +442,7 @@ body > div.content > div > div > div:nth-child(3) > div > div > h6 > span {
     margin-left: 40px;
 }
 .thumbnail:hover .thumb-overlay {
-    opacity: 0.5;
+    display: block;
 }
 .thumb-overlay {
     width: 100%;
@@ -455,9 +455,8 @@ body > div.content > div > div > div:nth-child(3) > div > div > h6 > span {
     justify-content: space-evenly;
     align-items: center;
     left: 0;
-    transition: opacity 0.4s ease;
     top: 0;
-    opacity: 0;
+    display: none;
 }
 .close-btn {
     padding: 20px;
