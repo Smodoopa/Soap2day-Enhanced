@@ -82,20 +82,6 @@
         triggerNoticiation(`${text} successfully added to your queue!`);
     }
 
-    const addQueueBtnSearch = () => {
-        var searchResults = $('.thumbnail div:nth-child(3) > h5').toArray();
-
-        searchResults.forEach(item => {
-            let searchTitle = $(item).eq(0).find('a').eq(0).text(),
-                searchUrl = siteRootPath + $(item).find('a:first').attr('href');
-            $(item).append(`<button title="${searchTitle}" url="${searchUrl}" class="searchAddQueueBtn">+</button>`);
-        });
-
-        $('.searchAddQueueBtn').click(e => {
-            addToQueue($(e.target).eq(0).attr('title'), $(e.target).eq(0).attr('url'));
-        });
-    }
-
     const addAllEpisodesToQueue = () => {
         var myQueue = JSON.parse(localStorage.getItem('myQueue'));
 
@@ -275,6 +261,13 @@
     const initSearchThumbOverlay = () => {
         let thumbOverlay = '<div class="thumb-overlay"><i class="thumbAdd fa fa-plus" aria-hidden="true"></i><i class="thumbFav fa fa-star" aria-hidden="true"></i><i class="thumbPlay fa fa-play-circle-o" aria-hidden="true"></i></div>';
         $('.thumbnail').prepend(thumbOverlay);
+
+        $('.thumbAdd').click(e => {
+            let indexOfClicked = $('.thumbAdd').index(e.target),
+                mediaTitle = $($('.thumbnail').eq(indexOfClicked)).eq(0).find('a').text(),
+                mediaUrl = siteRootPath + $($('.thumbnail').eq(indexOfClicked)).eq(0).find('a:first').attr('href');
+            addToQueue(mediaTitle, mediaUrl);
+        });
     }
 
     // ------------------------------------------------------
@@ -410,7 +403,6 @@
         else if (window.location.href.includes("/search/keyword/") || window.location.href.includes("/movielist/")) {
             upgradeNav();
             initSearchThumbOverlay();
-            addQueueBtnSearch();
         }
         else {
             upgradeNav();
