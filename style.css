@@ -468,7 +468,7 @@ tr {
     border-bottom: 1px solid #b7b7b71c;
     cursor: pointer;
 }
-tr:hover {
+tr:not(:first-child):hover {
     background-color: #80808030;
 }
 th {
