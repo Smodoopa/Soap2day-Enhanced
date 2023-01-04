@@ -442,7 +442,7 @@ body > div.content > div > div > div:nth-child(3) > div > div > h6 > span {
     margin-left: 40px;
 }
 .thumbnail:hover .thumb-overlay {
-    display: block;
+    display: flex;
 }
 .thumb-overlay {
     width: 100%;
@@ -458,6 +458,10 @@ body > div.content > div > div > div:nth-child(3) > div > div > h6 > span {
     top: 0;
     display: none;
     cursor: pointer;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
 }
 .thumb-overlay i {
     font-size: 3em;
