@@ -451,6 +451,8 @@ body > div.content > div > div > div:nth-child(3) > div > div > h6 > span {
     align-content: center;
     justify-content: space-evenly;
     align-items: center;
+    left: 0;
+    top: 0;
 }
 .close-btn {
     padding: 20px;
