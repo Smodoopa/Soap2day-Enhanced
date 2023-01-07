@@ -397,12 +397,12 @@
             loadingText = '<h1 class="loading-text">Welcome to Soap Enhanced</h1>',
             loadingBackground = '<div class="loading-bg"></div>';
         
-        $('loading-container').css(opacity, '1');
+        $('.loading-container').css('opacity', '1');
          $('.col-sm-12').remove();
          $('.col-md-4').remove();
          $('body > div.content > div > div').prepend(`${loadingBackground}<div class="loading-container">${loadingGif + loadingText}</div>`);
          setTimeout(() => {
-            $('loading-container').css(opacity, '0');
+            $('.loading-container').css('opacity', '0');
          }, 2500)
     };
 
