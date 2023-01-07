@@ -394,16 +394,17 @@
 
     const stylizeLoad = () => {
         let loadingGif = `<img src="${loading_img}"/>`,
-            loadingText = '<h1 class="loading-text">Welcome to Soap Enhanced</h1>',
+            loadingText = '<h1 class="loading-text">Welcome to Soap Enhanced.</h1>',
+            loadingText2 = '<h5 style="padding-top: 20px;">Created by Smodoopa</h5>',
             loadingBackground = '<div class="loading-bg"></div>';
         
-        $('.loading-container').css('opacity', '1');
-         $('.col-sm-12').remove();
-         $('.col-md-4').remove();
-         $('body > div.content > div > div').prepend(`${loadingBackground}<div class="loading-container">${loadingGif + loadingText}</div>`);
-         setTimeout(() => {
-            $('.loading-container').css('opacity', '0');
-         }, 2500)
+         $('.col-sm-12').hide();
+         $('.col-md-4').hide();
+         $('body > div.content > div > div').prepend(`${loadingBackground}<div class="loading-container">${loadingGif + loadingText + loadingText2}</div>`);
+         
+         setTimeout(() => {$('.loading-container').css('opacity', '1')}, 500);
+         
+         setTimeout(() => {$('.loading-container').css('opacity', '0')}, 2500);
     };
 
     // ------------------------------------------------------
@@ -412,14 +413,11 @@
     if (window.location.href.includes("enter.html")) {
         stylizeLoad();
     }
+    
+    // Bypasses Idle check.
+    setTimeout(() => { if (window.location.href.includes("enter.html")) document.getElementById('btnhome2').click() }, 3000);
 
-    setTimeout(() => {
-        // Bypasses Idle check.
-        if (window.location.href.includes("enter.html")) {
-            //document.getElementById('btnhome').click();
-        }
-    }, 3000);
-        
+    //Select View for Search, Tv Listing, Movie Listing, or Stream.
     setTimeout(() => {
         if (window.location.href.includes("/search/keyword/") || window.location.href.includes("/movielist/")) {
             upgradeNav();
