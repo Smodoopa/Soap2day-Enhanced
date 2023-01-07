@@ -392,6 +392,10 @@
         if (JSON.parse(localStorage.getItem('autoplay'))) waitForPlayer;
     }
 
+    const initHomepage = () => {
+        $('body > div.content > div:nth-child(3) > div > div.col-sm-8.col-lg-8.col-xs-12 > div:nth-child(1)').remove();
+    }
+
     const stylizeLoad = () => {
         let loadingGif = `<img src="${loading_img}"/>`,
             loadingText = '<h1 class="loading-text">Welcome to Soap Enhanced.</h1>',
@@ -418,12 +422,14 @@
 
     //Select View for Search, Tv Listing, Movie Listing, or Stream.
     setTimeout(() => {
+        upgradeNav();
         if (window.location.href.includes("/search/keyword/") || window.location.href.includes("/movielist/")) {
-            upgradeNav();
             initSearchThumbOverlay();
         }
+        else if (window.location.href = siteRootPath) {
+            initHomepage();
+        }
         else {
-            upgradeNav();
             initStreamPage();
         }
     }, 1000);

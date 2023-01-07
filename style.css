@@ -75,9 +75,6 @@ h5 {
 .myp1:hover {
     background-color: #1e1e1e !important;
 }
-body > div.content > div:nth-child(3) > div > div.col-sm-8.col-lg-8.col-xs-12 > div:nth-child(1) {
-    display: none;
-}
 a {
     color: #47b3c2 !important;
     text-decoration: none;
