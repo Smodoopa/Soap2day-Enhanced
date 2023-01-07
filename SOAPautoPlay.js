@@ -408,14 +408,13 @@
     };
 
     // ------------------------------------------------------
+    // --------------------START UP--------------------------
     // ------------------------------------------------------
-    // ------------------------------------------------------
-    if (window.location.href.includes("enter.html")) {
-        stylizeLoad();
-    }
+
+    if (window.location.href.includes("enter.html")) stylizeLoad();
     
     // Bypasses Idle check.
-    setTimeout(() => { if (window.location.href.includes("enter.html")) document.getElementById('btnhome2').click() }, 3000);
+    setTimeout(() => { if (window.location.href.includes("enter.html")) document.getElementById('btnhome').click() }, 3000);
 
     //Select View for Search, Tv Listing, Movie Listing, or Stream.
     setTimeout(() => {
