@@ -394,11 +394,15 @@
 
     const stylizeLoad = () => {
         let loadingGif = `<img src="${loading_img}"/>`,
-            loadingText = '<h1>Welcome to Soap Enhanced</h1>'
+            loadingText = '<h1 class="loading-text">Welcome to Soap Enhanced</h1>'
         
+        $('loading-container').css(opacity, '1');
          $('.col-sm-12').remove();
          $('.col-md-4').remove();
-         $('body > div.content > div > div').prepend(loadingGif + loadingText);
+         $('body > div.content > div > div').prepend(`<div class="loading-container">${loadingGif + loadingText}</div>`);
+         setTimeout(() => {
+            $('loading-container').css(opacity, '0');
+         }, 2500)
     };
 
     // ------------------------------------------------------
@@ -413,7 +417,10 @@
         if (window.location.href.includes("enter.html")) {
             //document.getElementById('btnhome').click();
         }
-        else if (window.location.href.includes("/search/keyword/") || window.location.href.includes("/movielist/")) {
+    }, 3000);
+        
+    setTimeout(() => {
+        if (window.location.href.includes("/search/keyword/") || window.location.href.includes("/movielist/")) {
             upgradeNav();
             initSearchThumbOverlay();
         }
