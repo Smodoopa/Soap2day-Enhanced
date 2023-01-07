@@ -18,6 +18,7 @@
         x_img = 'https://raw.githubusercontent.com/Smodoopa/Soap2day-Enhanced/main/resources/x.png',
         up_img = 'https://raw.githubusercontent.com/Smodoopa/Soap2day-Enhanced/main/resources/up-arrow.png',
         down_img = 'https://raw.githubusercontent.com/Smodoopa/Soap2day-Enhanced/main/resources/down-arrow.png',
+        loading_img = 'https://i.pinimg.com/originals/e5/b3/49/e5b349c0aeecefbf385a8ea327491313.gif',
         siteRootPath = 'https://soap2day.ac/';
 
     GM_addStyle(my_css);
@@ -391,14 +392,26 @@
         if (JSON.parse(localStorage.getItem('autoplay'))) waitForPlayer;
     }
 
+    const stylizeLoad = () => {
+        let loadingGif = `<img src="${loading_img}"/>`,
+            loadingText = '<h1>Welcome to Soap Enhanced</h1>'
+        
+         $('.col-sm-12').remove();
+         $('.col-md-4').remove();
+         $('body > div.content > div > div').prepend(loadingGif + loadingText);
+    };
+
     // ------------------------------------------------------
     // ------------------------------------------------------
     // ------------------------------------------------------
+    if (window.location.href.includes("enter.html")) {
+        stylizeLoad();
+    }
 
     setTimeout(() => {
         // Bypasses Idle check.
         if (window.location.href.includes("enter.html")) {
-            document.getElementById('btnhome').click();
+            //document.getElementById('btnhome').click();
         }
         else if (window.location.href.includes("/search/keyword/") || window.location.href.includes("/movielist/")) {
             upgradeNav();

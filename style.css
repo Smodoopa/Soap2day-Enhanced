@@ -86,7 +86,7 @@ a {
 }
 body {
     color: white;
-    background: #0c0c0c !important;
+    background: #0c0c0c;
 }
 .flipped {
     transform: rotate(180deg);
