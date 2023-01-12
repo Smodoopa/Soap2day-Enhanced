@@ -604,6 +604,10 @@ th:first-child {
     margin-left: auto;
     background-color: #e1e1e1;
 }
+#btnFavAdd {
+    margin-left: auto;
+    background-color: #a81c1c
+}
 #btnQueueDelete {
     background-color: #e33e3e;
     margin-left: 6px;
