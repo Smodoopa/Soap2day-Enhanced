@@ -271,10 +271,11 @@
         });
 
         $('.thumbFav').click(e => {
-            let indexOfClicked = $('.thumbPlay').index(e.target),
+            let indexOfClicked = $('.thumbFav').index(e.target),
+                mediaTitle = $($('.thumbnail').eq(indexOfClicked)).eq(0).find('a').text(),
                 mediaUrl = siteRootPath + $($('.thumbnail').eq(indexOfClicked)).eq(0).find('a:first').attr('href');
 
-            addToFavorites(indexOfClicked, mediaUrl);
+            addToFavorites(mediaTitle, mediaUrl);
         });
 
         $('.thumbAdd').click(e => {
