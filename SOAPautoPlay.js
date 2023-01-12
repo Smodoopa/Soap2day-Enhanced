@@ -263,6 +263,20 @@
         let thumbOverlay = '<div class="thumb-overlay"><i class="thumbAdd fa fa-plus" aria-hidden="true"></i><i class="thumbFav fa fa-star" aria-hidden="true"></i><i class="thumbPlay fa fa-play-circle-o" aria-hidden="true"></i></div>';
         $('.thumbnail').prepend(thumbOverlay);
 
+        $('.thumbPlay').click(e => {
+            let indexOfClicked = $('.thumbPlay').index(e.target),
+                mediaUrl = siteRootPath + $($('.thumbnail').eq(indexOfClicked)).eq(0).find('a:first').attr('href');
+
+            window.location.href = mediaUrl;
+        });
+
+        $('.thumbFav').click(e => {
+            let indexOfClicked = $('.thumbPlay').index(e.target),
+                mediaUrl = siteRootPath + $($('.thumbnail').eq(indexOfClicked)).eq(0).find('a:first').attr('href');
+
+            addToFavorites(indexOfClicked, mediaUrl);
+        });
+
         $('.thumbAdd').click(e => {
             let indexOfClicked = $('.thumbAdd').index(e.target),
                 mediaTitle = $($('.thumbnail').eq(indexOfClicked)).eq(0).find('a').text(),
@@ -392,10 +406,6 @@
         if (JSON.parse(localStorage.getItem('autoplay'))) waitForPlayer;
     }
 
-    const initHomepage = () => {
-        $('body > div.content > div:nth-child(3) > div > div.col-sm-8.col-lg-8.col-xs-12 > div:nth-child(1)').remove();
-    }
-
     const stylizeLoad = () => {
         let loadingGif = `<img src="${loading_img}"/>`,
             loadingText = '<h1 class="loading-text">Welcome to Soap Enhanced.</h1>',
@@ -425,11 +435,7 @@
         upgradeNav();
         if (window.location.href.includes("/search/keyword/") || window.location.href.includes("/movielist/")) {
             initSearchThumbOverlay();
-        }
-        else if (window.location.href = siteRootPath) {
-            initHomepage();
-        }
-        else {
+        } else {
             initStreamPage();
         }
     }, 1000);
