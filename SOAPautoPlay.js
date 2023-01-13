@@ -57,7 +57,7 @@
     }
 
     const loadFavoritesList = () => {
-        if ('.header-text' == 'My Queue') {
+        if ($('.header-text').text() == 'My Queue') {
             var myFavorites = JSON.parse(localStorage.getItem('myFavorites'));
 
             unloadQueueItems();

@@ -13,11 +13,25 @@
 .panel-info {
     border-color: #000000;
 }
-/*
-div.col-sm-8.col-lg-8.col-xs-12 > div:nth-child(1) {
-    display: none;
-}
-*/
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
 .searchAddQueueBtn {
     background-color: #b7b7b733;
     margin-left: 5px;
