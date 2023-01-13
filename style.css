@@ -548,13 +548,12 @@ td {
     line-height: 20px;
 }
 tr:first-child {
-    border-bottom: 1px solid #535353;
-    height: 30px;
+    height: 45px;
+    background: #121212;
 }
 td:first-child {
     text-align: center;
     width: auto;
-
 }
 th:first-child {
     width: 1em;
