@@ -458,6 +458,9 @@ body > div.content > div > div > div:nth-child(3) > div > div > h6 > span {
     flex: 1 1 auto;
     margin-left: 40px;
 }
+.header-text-fav {
+    margin-left: 0 !important;
+}
 .thumbnail:hover .thumb-overlay {
     display: flex;
 }

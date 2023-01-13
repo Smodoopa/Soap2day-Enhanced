@@ -57,34 +57,38 @@
     }
 
     const loadFavoritesList = () => {
-        var myFavorites = JSON.parse(localStorage.getItem('myFavorites'));
+        if ('.header-text' == 'My Queue') {
+            var myFavorites = JSON.parse(localStorage.getItem('myFavorites'));
 
-        unloadQueueItems();
-
-        $('.header-text').text('Favorites');
-
-        let backbtn = '<div id="s-back-btn" class="server-header-btn"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>';
-        $('.server-header').prepend(backbtn);
-
-        myFavorites.forEach((item, index) => {
-            $('.queue-table tr:last').after(`<tr><td>${index + 1}</td><td class="queueTableRowData"><a href="${item[1]}">${item[0]}</a><div id="btnFavAdd" class="btnQueueTable"><i class="fa fa-plus" aria-hidden="true"></i></div></td></tr>`);
-        });
-
-        $('#s-back-btn').click(() => {
-            $('.header-text').text('My Queue');
-            $('#s-back-btn').remove();
             unloadQueueItems();
-        });
-
-        $('.btnQueueTable').click(e => {
-            const myFavorites = JSON.parse(localStorage.getItem('myFavorites'));
-
-            let indexOfClicked = $('.btnQueueTable').index(e.target),
-                mediaTitle = myFavorites[indexOfClicked][0],
-                mediaUrl = myFavorites[indexOfClicked][1];
-
-            addToQueue(mediaTitle, mediaUrl);
-        });
+    
+            $('.header-text').toggleClass('header-text-fav');
+            $('.header-text').text('Favorites');
+    
+            let backbtn = '<div id="s-back-btn" class="server-header-btn"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>';
+            $('.server-header').prepend(backbtn);
+    
+            myFavorites.forEach((item, index) => {
+                $('.queue-table tr:last').after(`<tr><td>${index + 1}</td><td class="queueTableRowData"><a href="${item[1]}">${item[0]}</a><div id="btnFavAdd" class="btnQueueTable"><i class="fa fa-plus" aria-hidden="true"></i></div></td></tr>`);
+            });
+    
+            $('#s-back-btn').click(() => {
+                $('.header-text').text('My Queue');
+                $('#s-back-btn').remove();
+                $('.header-text').toggleClass('header-text-fav');
+                reloadQueueItems();
+            });
+    
+            $('.btnQueueTable').click(e => {
+                const myFavorites = JSON.parse(localStorage.getItem('myFavorites'));
+    
+                let indexOfClicked = $('.btnQueueTable').index(e.target),
+                    mediaTitle = myFavorites[indexOfClicked][0],
+                    mediaUrl = myFavorites[indexOfClicked][1];
+    
+                addToQueue(mediaTitle, mediaUrl);
+            });
+        }
     }
 
     // ------------------------------------------------------
@@ -137,6 +141,19 @@
     }
 
     const loadQueueModal = () => {
+        loadQueueItems();
+
+        $('#btnFav').click(e => { loadFavoritesList() });
+
+        $('.queue-modal').css('display', 'flex');
+        $('body').toggleClass('noscroll');
+    }
+
+    const unloadQueueItems = () => {
+        $('.queue-table tbody tr:not(:first)').remove();
+    }
+
+    const loadQueueItems = () => {
         var queue = JSON.parse(localStorage.getItem('myQueue'));
 
         queue.forEach((item, index) => {
@@ -147,14 +164,11 @@
             }
         });
 
-        $('#btnFav').click(e => { loadFavoritesList() });
-
         $('.queueTableRowData > #btnQueueDelete').click(e => {
             var myQueue = JSON.parse(localStorage.getItem('myQueue'));
             myQueue.splice($(e.target.parentElement.parentElement).index() - 1, 1);
             localStorage.setItem("myQueue", JSON.stringify(myQueue));
-            closeQueueModal();
-            loadQueueModal();
+            reloadQueueItems();
         });
 
         $('.queueTableRowData > #btnQueueUp').click(e => {
@@ -169,8 +183,7 @@
 
             localStorage.setItem("myQueue", JSON.stringify(myQueue));
 
-            closeQueueModal();
-            loadQueueModal();
+            reloadQueueItems();
         });
 
         $('.queueTableRowData > #btnQueueDown').click(e => {
@@ -185,16 +198,13 @@
 
             localStorage.setItem("myQueue", JSON.stringify(myQueue));
 
-            closeQueueModal();
-            loadQueueModal();
+            reloadQueueItems();
         });
-
-        $('.queue-modal').css('display', 'flex');
-        $('body').toggleClass('noscroll');
     }
 
-    const unloadQueueItems = () => {
-        $('.queue-table tbody tr:not(:first)').remove();
+    const reloadQueueItems = () => {
+        unloadQueueItems();
+        loadQueueItems();
     }
 
     const closeQueueModal = () => {
