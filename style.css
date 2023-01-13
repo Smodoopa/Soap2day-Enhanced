@@ -20,12 +20,12 @@
   
   /* Track */
   ::-webkit-scrollbar-track {
-    background: #f1f1f1; 
+    background: #121212; 
   }
    
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #888; 
+    background: #4d4d4d; 
   }
   
   /* Handle on hover */
@@ -554,15 +554,11 @@ tr:first-child {
 td:first-child {
     text-align: center;
     width: auto;
-    border-right: 1px solid #535353;
+
 }
 th:first-child {
     width: 1em;
     text-align: center;
-    border-right: 1px solid #535353;
-}
-.queue-table-headers {
-    background-color: #0c0c0c;
 }
 .blurred {
     filter: blur(5px);
