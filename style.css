@@ -610,11 +610,11 @@ th:first-child {
 }
 #btnQueueUp {
     margin-left: 6px;
-    background-color: #e1e1e1;
+    background-color: #1b1b1b;
 }
 #btnQueueDown {
     margin-left: auto;
-    background-color: #e1e1e1;
+    background-color: #1b1b1b;
 }
 #btnFavAdd {
     margin-left: auto;
