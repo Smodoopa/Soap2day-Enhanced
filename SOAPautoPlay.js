@@ -48,7 +48,13 @@
     // ------------------------------------------------------
 
     const loadQuickSearch = (searchQuery) => {
+        if ($('.header-text').text() !== 'Quick Search') {
         unloadQueueItems();
+        $('.header-text').toggleClass('header-text-fav');
+        $('.header-text').text('Quick Search');
+
+        let backbtn = '<div id="s-back-btn" class="server-header-btn"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>';
+        $('.server-header').prepend(backbtn);
 
         fetch(`https://soap2day.ac/search/keyword/${encodeURIComponent(searchQuery)}`)
             .then(function (response) {
@@ -62,13 +68,26 @@
                 var pageSearchResults = $(doc).find('.thumbnail div:nth-child(2) > h5 > a').toArray();
                 
                 pageSearchResults.forEach((searchItem, index) => {
-                    $('.queue-table tr:last').after(`<tr><td>${index + 1}</td><td class="queueTableRowData"><a href="${searchItem[1]}">${searchItem[0]}</a><div id="btnFavAdd" class="btnQueueTable"><i class="fa fa-plus" aria-hidden="true"></i></div></td></tr>`);
+                    $('.queue-table tr:last').after(`<tr><td>${index + 1}</td><td class="queueTableRowData"><a href="${$(searchItem).attr('href')}">${$(searchItem).text()}</a><div id="btnFavAdd" class="btnQueueTable"><i class="fa fa-plus" aria-hidden="true"></i></div></td></tr>`);
                 });
 
             })
             .catch(function (err) {
                 console.log('Failed to fetch page: ', err);
+            })
+            .finally(() => {
+                $('#s-back-btn').click(() => {
+                    $('.header-text').text('My Queue');
+                    $('#s-back-btn').remove();
+                    $('.header-text').toggleClass('header-text-fav');
+                    reloadQueueItems();
+                });
+        
+                $('.btnQueueTable').click(e => {
+                    //addToQueue(mediaTitle, mediaUrl);
+                });
             });
+        }
     }
 
     // ------------------------------------------------------
@@ -85,7 +104,7 @@
     }
 
     const loadFavoritesList = () => {
-        if ($('.header-text').text() == 'My Queue') {
+        if ($('.header-text').text() !== 'Favorites') {
             var myFavorites = JSON.parse(localStorage.getItem('myFavorites'));
 
             unloadQueueItems();
