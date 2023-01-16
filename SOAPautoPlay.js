@@ -47,6 +47,34 @@
     // ---------------------Favorites------------------------
     // ------------------------------------------------------
 
+    const loadQuickSearch = (searchQuery) => {
+        unloadQueueItems();
+
+        fetch(`https://soap2day.ac/search/keyword/${encodeURIComponent(searchQuery)}`)
+            .then(function (response) {
+                return response.text()
+            })
+            .then(function (html) {
+                var parser = new DOMParser();
+
+                var doc = parser.parseFromString(html, "text/html");
+
+                var pageSearchResults = $(doc).find('.thumbnail div:nth-child(2) > h5 > a').toArray();
+                
+                pageSearchResults.forEach((searchItem, index) => {
+                    $('.queue-table tr:last').after(`<tr><td>${index + 1}</td><td class="queueTableRowData"><a href="${searchItem[1]}">${searchItem[0]}</a><div id="btnFavAdd" class="btnQueueTable"><i class="fa fa-plus" aria-hidden="true"></i></div></td></tr>`);
+                });
+
+            })
+            .catch(function (err) {
+                console.log('Failed to fetch page: ', err);
+            });
+    }
+
+    // ------------------------------------------------------
+    // ---------------------Favorites------------------------
+    // ------------------------------------------------------
+
     const addToFavorites = (text, url) => {
         var myFavorites = JSON.parse(localStorage.getItem('myFavorites'));
 
@@ -158,9 +186,9 @@
 
         queue.forEach((item, index) => {
             if (index == 0) {
-                $('.queue-table tr:last').after(`<tr style="background: #a3a3a340;"><td>${index + 1}</td><td class="queueTableRowData"><a href="${item[1]}">${item[0]}</a><div class="upNextLabel">Up Next</div><div id="btnQueueDown" class="btnQueueTable"><img src="${down_img}" /></div><div id="btnQueueUp" class="btnQueueTable"><img src="${up_img}" /></div><div id="btnQueueDelete" class="btnQueueTable"><i class="fa fa-times" aria-hidden="true"></i></div></td></tr>`);
+                $('.queue-table tr:last').after(`<tr style="background: #a3a3a340;"><td>${index + 1}</td><td class="queueTableRowData"><a href="${item[1]}">${item[0]}</a><div class="upNextLabel">Up Next</div><div id="btnQueueDown" class="btnQueueTable"><i class="fa fa-caret-down" aria-hidden="true"></i></div><div id="btnQueueUp" class="btnQueueTable"><i class="fa fa-caret-up" aria-hidden="true"></i></div><div id="btnQueueDelete" class="btnQueueTable"><i class="fa fa-times" aria-hidden="true"></i></div></td></tr>`);
             } else {
-                $('.queue-table tr:last').after(`<tr><td>${index + 1}</td><td class="queueTableRowData"><a href="${item[1]}">${item[0]}</a><div id="btnQueueDown" class="btnQueueTable"><img src="${down_img}" /></div><div id="btnQueueUp" class="btnQueueTable"><img src="${up_img}" /></div><div id="btnQueueDelete" class="btnQueueTable"><i class="fa fa-times" aria-hidden="true"></i></div></td></tr>`);
+                $('.queue-table tr:last').after(`<tr><td>${index + 1}</td><td class="queueTableRowData"><a href="${item[1]}">${item[0]}</a><div id="btnQueueDown" class="btnQueueTable"><i class="fa fa-caret-down" aria-hidden="true"></i></div><div id="btnQueueUp" class="btnQueueTable"><i class="fa fa-caret-up" aria-hidden="true"></i></div><div id="btnQueueDelete" class="btnQueueTable"><i class="fa fa-times" aria-hidden="true"></i></div></td></tr>`);
             }
         });
 
@@ -214,28 +242,7 @@
     }
 
     const quickQueueSearch = (searchQuery) => {
-        fetch(`https://soap2day.ac/search/keyword/${encodeURIComponent(searchQuery)}`)
-            .then(function (response) {
-                return response.text()
-            })
-            .then(function (html) {
-                var parser = new DOMParser();
-
-                var doc = parser.parseFromString(html, "text/html");
-
-                var quickSearchResult = $(doc).find('.thumbnail div:nth-child(2) > h5 > a').toArray()[0];
-
-                if (quickSearchResult !== null) {
-                    addToQueue(quickSearchResult.text, quickSearchResult.href);
-                    $('.quickAddInput').val('');
-                    closeQueueModal();
-                    loadQueueModal();
-                }
-
-            })
-            .catch(function (err) {
-                console.log('Failed to fetch page: ', err);
-            });
+        loadQuickSearch(searchQuery);
     }
 
     const listenForEndOfMedia = setInterval(() => {

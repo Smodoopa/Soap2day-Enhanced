@@ -521,7 +521,7 @@ body > div.content > div > div > div:nth-child(3) > div > div > h6 > span {
 .queue-table {
     background-color: #171717;
     width: 100%;
-    border-top: 1px #414141 solid;
+    border-top: 1px #4141417d solid;
     height: 389px;
     overflow-y: scroll;
     display: table-column;
@@ -610,11 +610,11 @@ th:first-child {
 }
 #btnQueueUp {
     margin-left: 6px;
-    background-color: #1b1b1b;
+    background-color: #000000e0;
 }
 #btnQueueDown {
     margin-left: auto;
-    background-color: #1b1b1b;
+    background-color: #000000e0;
 }
 #btnFavAdd {
     margin-left: auto;
