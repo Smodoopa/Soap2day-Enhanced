@@ -114,18 +114,19 @@
 
             unloadQueueItems();
     
+            let backbtn = '<div id="s-back-btn" class="server-header-btn"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>';
+            if ($('.header-text').text() !== "Quick Search") $('.server-header').prepend(backbtn);
+
             $(".queue-button-panel").toggleClass("disableDiv");
             $('.header-text').toggleClass('header-text-fav');
             $('.header-text').text('Favorites');
-    
-            let backbtn = '<div id="s-back-btn" class="server-header-btn"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>';
-            $('.server-header').prepend(backbtn);
     
             myFavorites.forEach((item, index) => {
                 $('.queue-table tr:last').after(`<tr><td>${index + 1}</td><td class="queueTableRowData"><a href="${item[1]}">${item[0]}</a><div id="btnFavAdd" class="btnQueueTable"><i class="fa fa-plus" aria-hidden="true"></i></div></td></tr>`);
             });
     
             $('#s-back-btn').click(() => {
+                $('.queue-button-panel').toggleClass('disableDiv');
                 $('.header-text').text('My Queue');
                 $('#s-back-btn').remove();
                 $('.header-text').toggleClass('header-text-fav');
