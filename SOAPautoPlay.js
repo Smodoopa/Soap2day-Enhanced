@@ -84,7 +84,12 @@
                 });
         
                 $('.btnQueueTable').click(e => {
-                    //addToQueue(mediaTitle, mediaUrl);
+                    var indexOfClicked = $(e.target.parentElement.parentElement).index() - 1;
+
+                    let searchItemTitle = $('.queueTableRowData').parent().find('a')[indexOfClicked].text,
+                        searchItemUrl = $('.queueTableRowData').parent().find('a')[indexOfClicked].href;
+
+                    addToQueue(searchItemTitle, searchItemUrl);
                 });
             });
         }
@@ -109,6 +114,7 @@
 
             unloadQueueItems();
     
+            $(".queue-button-panel").toggleClass("disableDiv");
             $('.header-text').toggleClass('header-text-fav');
             $('.header-text').text('Favorites');
     
@@ -395,7 +401,9 @@
             $('.navbar-form').toggle()
         });
 
-        $('.fa-align-justify').click(() => loadQueueModal());
+        $('.fa-align-justify').click(() => {
+            loadQueueModal()
+        });
 
         $(window).scroll(() => {
             if ($(window).scrollTop() == 0) {
