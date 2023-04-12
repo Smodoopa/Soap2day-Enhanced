@@ -4,8 +4,8 @@
     margin-top: 70px !important;
 }
 .content > div:nth-child(3) {
-    padding-right: 5vw;
-    padding-left: 5vw;
+    /*padding-right: 5vw;
+    padding-left: 5vw;*/
 }
 .col-sm-8 {
     width: 100%;
